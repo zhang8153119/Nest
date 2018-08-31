@@ -1,8 +1,0 @@
-E:\【新】1 源代码\Nesting\HostMain\bin\Debug\FZYK.Win.exe.config
-E:\【新】1 源代码\Nesting\HostMain\bin\Debug\FZYK.Win.exe
-E:\【新】1 源代码\Nesting\HostMain\bin\Debug\FZYK.Win.pdb
-E:\【新】1 源代码\Nesting\FZYK.Win\obj\Debug\FZYK.Win.csprojResolveAssemblyReference.cache
-E:\【新】1 源代码\Nesting\FZYK.Win\obj\Debug\FZYK.Win.Properties.Resources.resources
-E:\【新】1 源代码\Nesting\FZYK.Win\obj\Debug\FZYK.Win.csproj.GenerateResource.Cache
-E:\【新】1 源代码\Nesting\FZYK.Win\obj\Debug\FZYK.Win.exe
-E:\【新】1 源代码\Nesting\FZYK.Win\obj\Debug\FZYK.Win.pdb
