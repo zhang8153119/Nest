@@ -82,10 +82,10 @@ StyleCopReport.xml
 .builds
 *.pidb
 *.svclog
-*.scc*.exe
-
-#project file
-*.sln
+*.scc
+
+#project file
+*.sln
 *.csproj
 
 # Chutzpah Test files
@@ -334,4 +334,3 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
-
