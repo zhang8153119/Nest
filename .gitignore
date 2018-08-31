@@ -82,7 +82,7 @@ StyleCopReport.xml
 .builds
 *.pidb
 *.svclog
-*.scc
+*.scc*.exe
 
 #project file
 *.sln
@@ -334,4 +334,4 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
-
+
