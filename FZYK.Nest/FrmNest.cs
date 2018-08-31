@@ -16,8 +16,5 @@ namespace FZYK .Nest
             {
                   InitializeComponent();
             }
-
-
-
       }
 }
