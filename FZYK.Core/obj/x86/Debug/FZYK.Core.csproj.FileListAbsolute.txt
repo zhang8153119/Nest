@@ -1,0 +1,289 @@
+D:\新系统\FZYK\FZYK\FZYK.Core\bin\Debug\FZYK.Core.dll
+D:\新系统\FZYK\FZYK\FZYK.Core\bin\Debug\FZYK.Core.pdb
+D:\新系统\FZYK\FZYK\FZYK.Core\bin\Debug\FZYK.WinCtrl.dll
+D:\新系统\FZYK\FZYK\FZYK.Core\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll
+D:\新系统\FZYK\FZYK\FZYK.Core\bin\Debug\FZYK.WinCtrl.pdb
+D:\新系统\FZYK\FZYK\FZYK.Core\bin\Debug\FZYK.Core.XML
+D:\新系统\FZYK\FZYK\HostMain\bin\Debug\FZYK.Core.dll
+D:\新系统\FZYK\FZYK\HostMain\bin\Debug\FZYK.Core.pdb
+D:\新系统\FZYK\FZYK\HostMain\bin\Debug\FZYK.Core.XML
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+D:\新系统\FZYK\框架\HostMain\bin\Debug\FZYK.Core.dll
+D:\新系统\FZYK\框架\HostMain\bin\Debug\FZYK.Core.pdb
+D:\新系统\FZYK\框架\HostMain\bin\Debug\FZYK.Core.XML
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+D:\新系统\FZYK\框架\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.YKDownload.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+D:\新系统\FZYK\FZYK\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+D:\新系统\程序代码\大吉\HostMain\bin\Debug\FZYK.Core.dll
+D:\新系统\程序代码\大吉\HostMain\bin\Debug\FZYK.Core.pdb
+D:\新系统\程序代码\大吉\HostMain\bin\Debug\FZYK.Core.XML
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.YKDownload.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+D:\新系统\程序代码\大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+D:\FZYK 4-11\HostMain\bin\Debug\FZYK.Core.dll
+D:\FZYK 4-11\HostMain\bin\Debug\FZYK.Core.pdb
+D:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+G:\FZYK 4-11\HostMain\bin\Debug\FZYK.Core.dll
+G:\FZYK 4-11\HostMain\bin\Debug\FZYK.Core.pdb
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.csprojResolveAssemblyReference.cache
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.csproj.GenerateResource.Cache
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+G:\FZYK 4-11\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】7-15源代码\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】7-15源代码\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】7-15源代码\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】1 大吉\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】1 大吉\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】1 大吉\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\4 江电\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】1 源代码\4 江电\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+F:\zzb\【新】1 源代码\4 江电\HostMain\bin\Debug\FZYK.Core.dll
+F:\zzb\【新】1 源代码\4 江电\HostMain\bin\Debug\FZYK.Core.pdb
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+F:\zzb\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】4-8\【新】1 源代码\4 江电\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】4-8\【新】1 源代码\4 江电\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\ResolveAssemblyReference.cache
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\GenerateResource.read.1.tlog
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\GenerateResource.write.1.tlog
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】4-8\【新】1 源代码\4 江电\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\7 FJ\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】1 源代码\7 FJ\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.csprojResolveAssemblyReference.cache
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.csproj.GenerateResource.Cache
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】1 源代码\7 FJ\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\3 飞剑\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】1 源代码\3 飞剑\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.csprojResolveAssemblyReference.cache
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.csproj.GenerateResource.Cache
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】1 源代码\3 飞剑\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\10 顺泰\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】1 源代码\10 顺泰\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.csprojResolveAssemblyReference.cache
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.csproj.GenerateResource.Cache
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】1 源代码\10 顺泰\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\11 汇金通\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】1 源代码\11 汇金通\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.csprojResolveAssemblyReference.cache
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.csproj.GenerateResource.Cache
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】1 源代码\11 汇金通\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\13 常熟\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】1 源代码\13 常熟\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.csprojResolveAssemblyReference.cache
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.csproj.GenerateResource.Cache
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】1 源代码\13 常熟\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\Nesting\HostMain\bin\Debug\FZYK.Core.dll
+E:\【新】1 源代码\Nesting\HostMain\bin\Debug\FZYK.Core.pdb
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.csprojResolveAssemblyReference.cache
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseLog.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSearch.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSelectDialog.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseSingle.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.BaseToolBox.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmDockForm.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmSetColumnVisible.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxCheJinXML.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.FrmToolBoxXML.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.Properties.Resources.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.YKMessageBox.resources
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.csproj.GenerateResource.Cache
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.dll
+E:\【新】1 源代码\Nesting\FZYK.Core\obj\x86\Debug\FZYK.Core.pdb

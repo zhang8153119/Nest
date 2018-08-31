@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9C98A84-A2EB-45BA-90C4-D26033B288BE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FZYK.Core</RootNamespace>
+    <AssemblyName>FZYK.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\HostMain\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DotNetMagic, Version=2.0.2.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HostMain\bin\Debug\DotNetMagic.DLL</HintPath>
+    </Reference>
+    <Reference Include="FZYK.WinCtrl, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HostMain\bin\Debug\FZYK.WinCtrl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.3990.25764, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="WeifenLuo.WinFormsUI.Docking, Version=2.6.0.0, Culture=neutral, PublicKeyToken=5cded1a1a0a7b481, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\HostMain\bin\Debug\WeifenLuo.WinFormsUI.Docking.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing, Version=0.12.0.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseLog.designer.cs">
+      <DependentUpon>BaseLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseSearch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseSearch.Designer.cs">
+      <DependentUpon>BaseSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseSelectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseSelectDialog.Designer.cs">
+      <DependentUpon>BaseSelectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseSingle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseSingle.Designer.cs">
+      <DependentUpon>BaseSingle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseToolBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseToolBox.Designer.cs">
+      <DependentUpon>BaseToolBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBoxBinder.cs" />
+    <Compile Include="ComboBoxBinderAMO.cs" />
+    <Compile Include="ComboBoxBinderCXP.cs" />
+    <Compile Include="ComboBoxBinderYan.cs" />
+    <Compile Include="ContextMenuStripBinder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ContextMenuStripBinderZZB.cs" />
+    <Compile Include="DevCommon.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DevCommonAMO.cs" />
+    <Compile Include="DevCommonCXP.cs" />
+    <Compile Include="DevCommonYan.cs" />
+    <Compile Include="FrmDockForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDockForm.Designer.cs">
+      <DependentUpon>FrmDockForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmSetColumnVisible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmSetColumnVisible.designer.cs">
+      <DependentUpon>FrmSetColumnVisible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmToolBoxCheJinXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmToolBoxCheJinXML.Designer.cs">
+      <DependentUpon>FrmToolBoxCheJinXML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmToolBoxXML.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmToolBoxXML.Designer.cs">
+      <DependentUpon>FrmToolBoxXML.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IFrmMainToolBox.cs" />
+    <Compile Include="LoginClass.cs" />
+    <Compile Include="Notify.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ProviderAMO.cs" />
+    <Compile Include="ProviderCXP.cs" />
+    <Compile Include="ProviderYan.cs" />
+    <Compile Include="YKControlText.cs" />
+    <Compile Include="YKMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="YKMessageBox.designer.cs">
+      <DependentUpon>YKMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComboBoxBinderZZB.cs" />
+    <Compile Include="DevCommonZZB.cs" />
+    <Compile Include="ProviderZZB.cs" />
+    <EmbeddedResource Include="BaseLog.resx">
+      <DependentUpon>BaseLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseSearch.resx">
+      <DependentUpon>BaseSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseSelectDialog.resx">
+      <DependentUpon>BaseSelectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseSingle.resx">
+      <DependentUpon>BaseSingle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseToolBox.resx">
+      <DependentUpon>BaseToolBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDockForm.resx">
+      <DependentUpon>FrmDockForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmSetColumnVisible.resx">
+      <DependentUpon>FrmSetColumnVisible.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmToolBoxCheJinXML.resx">
+      <DependentUpon>FrmToolBoxCheJinXML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmToolBoxXML.resx">
+      <DependentUpon>FrmToolBoxXML.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="YKMessageBox.resx">
+      <DependentUpon>YKMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_in.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_form_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\application_form_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\find.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_multiple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plugin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\table_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\printer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\saveHS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_blue_delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\book_blue_preferences.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email_go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\68.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FZYK.Com\FZYK.Com.csproj">
+      <Project>{04041CEB-22A2-4D54-B98F-7CA4B9C06EDC}</Project>
+      <Name>FZYK.Com</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iplugs.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

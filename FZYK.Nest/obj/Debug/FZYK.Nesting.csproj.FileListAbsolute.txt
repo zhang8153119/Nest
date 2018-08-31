@@ -1,0 +1,9 @@
+E:\【新】1 源代码\Nesting\FZYK.Nesting\obj\Debug\FZYK.Nesting.csprojResolveAssemblyReference.cache
+E:\【新】1 源代码\Nesting\FZYK.Nesting\obj\Debug\myCad.CADInterfaceCtrl.CADInterface.resources
+E:\【新】1 源代码\Nesting\FZYK.Nesting\obj\Debug\FZYK.Nesting.csproj.GenerateResource.Cache
+E:\【新】1 源代码\Nesting\FZYK.Nesting\obj\Debug\FZYK.Nesting.FrmCut.resources
+E:\【新】1 源代码\Nesting\FZYK.Nesting\obj\Debug\FZYK.Nesting.FrmText.resources
+E:\【新】1 源代码\Nesting\HostMain\bin\Debug\FZYK套料系统.exe
+E:\【新】1 源代码\Nesting\HostMain\bin\Debug\FZYK套料系统.pdb
+E:\【新】1 源代码\Nesting\FZYK.Nesting\obj\Debug\FZYK套料系统.exe
+E:\【新】1 源代码\Nesting\FZYK.Nesting\obj\Debug\FZYK套料系统.pdb

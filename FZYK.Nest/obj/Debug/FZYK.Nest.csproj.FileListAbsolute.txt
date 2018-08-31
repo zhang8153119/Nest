@@ -1,0 +1,11 @@
+E:\【新】1 源代码\Nest\HostMain\bin\Debug\FZYK套料系统.exe
+E:\【新】1 源代码\Nest\HostMain\bin\Debug\FZYK套料系统.pdb
+E:\【新】1 源代码\Nest\FZYK.Nest\obj\Debug\FZYK.Nest.csprojResolveAssemblyReference.cache
+E:\【新】1 源代码\Nest\FZYK.Nest\obj\Debug\FZYK.Nest.FrmCut.resources
+E:\【新】1 源代码\Nest\FZYK.Nest\obj\Debug\FZYK.Nest.FrmText.resources
+E:\【新】1 源代码\Nest\FZYK.Nest\obj\Debug\myCad.CADInterfaceCtrl.CADInterface.resources
+E:\【新】1 源代码\Nest\FZYK.Nest\obj\Debug\FZYK.Nest.csproj.GenerateResource.Cache
+E:\【新】1 源代码\Nest\FZYK.Nest\obj\Debug\FZYK套料系统.exe
+E:\【新】1 源代码\Nest\FZYK.Nest\obj\Debug\FZYK套料系统.pdb
+E:\【新】1 源代码\0 Nest\FZYK.Nest\obj\Debug\FZYK套料系统.exe
+E:\【新】1 源代码\0 Nest\FZYK.Nest\obj\Debug\FZYK套料系统.pdb
