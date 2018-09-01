@@ -123,7 +123,7 @@ namespace myCad.PaiYangSuanFa
                             listGuiJi.Add(new Line(lineSp, lineEp));
                             if (count >= 0)
                             {
-                                CADInterface.currentShapes.Add(new Line(lineSp, lineEp));
+                                //CADInterface.currentShapes.Add(new Line(lineSp, lineEp));
                             }
                             #endregion
                         }
@@ -168,7 +168,7 @@ namespace myCad.PaiYangSuanFa
 
                                         if (count >= 0)
                                         {
-                                            CADInterface.currentShapes.Add(new Line(lineSpAo, lineEpAo));
+                                            //CADInterface.currentShapes.Add(new Line(lineSpAo, lineEpAo));
                                         }
                                     }
                                 }
@@ -206,7 +206,7 @@ namespace myCad.PaiYangSuanFa
 
                                         if (count >= 0)
                                         {
-                                            CADInterface.currentShapes.Add(new Line(lineSpAo, lineEpAo));
+                                            //CADInterface.currentShapes.Add(new Line(lineSpAo, lineEpAo));
                                         }
                                     }
                                 }
@@ -244,7 +244,7 @@ namespace myCad.PaiYangSuanFa
                             listGuiJi.Add(new Line(lineSp, lineEp));
                             if (count >= 0)
                             {
-                                CADInterface.currentShapes.Add(new Line(lineSp, lineEp));
+                                //CADInterface.currentShapes.Add(new Line(lineSp, lineEp));
                             }
                             #endregion
                         }
@@ -296,7 +296,7 @@ namespace myCad.PaiYangSuanFa
                     }
                     MessageBox.Show(sign + "");
                     count = count + 1;
-                    CADInterface.DrawShap();
+                    //CADInterface.DrawShap();
                     //System.Threading.Thread.Sleep(2000);
                 }
                 else

@@ -28,8 +28,8 @@ namespace myCad.ShapeOper
             
             newStockModel = new ModelOper().reSetModelList(newStockModel);
             newStockModel = new ModelOper().reSetPointShunXu(newStockModel, false);
-            newStockModel.ModelId = CADInterface.globalModelID;
-            CADInterface.globalModelID = CADInterface.globalModelID + 1;
+            //newStockModel.ModelId = CADInterface.globalModelID;
+            //CADInterface.globalModelID = CADInterface.globalModelID + 1;
             return newStockModel;
         }
 
@@ -49,8 +49,8 @@ namespace myCad.ShapeOper
                     Line line = new Shape.Line(listPoint[i], listPoint[0]);
                     if (isAddToGlobal)
                     {
-                        line.ShapeID = CADInterface.globalID;
-                        CADInterface.globalID = CADInterface.globalID + 1;
+                        //line.ShapeID = CADInterface.globalID;
+                        //CADInterface.globalID = CADInterface.globalID + 1;
                     }
                     listLine.Add(line);
                 }
@@ -59,8 +59,8 @@ namespace myCad.ShapeOper
                     Line line = new Shape.Line(listPoint[i], listPoint[i + 1]);
                     if (isAddToGlobal)
                     {
-                        line.ShapeID = CADInterface.globalID;
-                        CADInterface.globalID = CADInterface.globalID + 1;
+                        //line.ShapeID = CADInterface.globalID;
+                        //CADInterface.globalID = CADInterface.globalID + 1;
                     }
                     listLine.Add(line);
                 }

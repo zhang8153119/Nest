@@ -98,7 +98,7 @@ namespace myCad.PaiYangSuanFa
                             listGene[signGene] = moveOper.MovePlate(listGene[signGene],
                                 moveX,
                                 moveY);
-                            CADInterface.DrawShap();
+                            //CADInterface.DrawShap();
                             PointF lineSp = listGene[signGene].RotateCenter;
                             listGene[signGene] = moveOper.MovePlate(listGene[signGene],
                                 -(moveX),
@@ -117,7 +117,7 @@ namespace myCad.PaiYangSuanFa
                             listGuiJi.Add(new Line(lineSp, lineEp));
                             if (count == 1)
                             {
-                                CADInterface.currentShapes.Add(new Line(lineSp, lineEp));
+                                //CADInterface.currentShapes.Add(new Line(lineSp, lineEp));
                             }
                             #endregion
                         }
@@ -139,7 +139,7 @@ namespace myCad.PaiYangSuanFa
                                         listGene[signGene] = moveOper.MovePlate(listGene[signGene],
                                             moveXAo,
                                             moveYAo);
-                                        CADInterface.DrawShap();
+                                        //CADInterface.DrawShap();
                                         PointF lineSpAo = listGene[signGene].RotateCenter;
                                         listGene[signGene] = moveOper.MovePlate(listGene[signGene],
                                             -(moveXAo),
@@ -159,7 +159,7 @@ namespace myCad.PaiYangSuanFa
 
                                         if (count == 1)
                                         {
-                                            CADInterface.currentShapes.Add(new Line(lineSpAo, lineEpAo));
+                                            //CADInterface.currentShapes.Add(new Line(lineSpAo, lineEpAo));
                                         }
                                     }
                                 }
@@ -173,7 +173,7 @@ namespace myCad.PaiYangSuanFa
                                         listGene[signGene] = moveOper.MovePlate(listGene[signGene],
                                             moveXAo,
                                             moveYAo);
-                                        CADInterface.DrawShap();
+                                        //CADInterface.DrawShap();
                                         PointF lineSpAo = listGene[signGene].RotateCenter;
                                         listGene[signGene] = moveOper.MovePlate(listGene[signGene],
                                             -(moveXAo),
@@ -193,7 +193,7 @@ namespace myCad.PaiYangSuanFa
 
                                         if (count == 1)
                                         {
-                                            CADInterface.currentShapes.Add(new Line(lineSpAo, lineEpAo));
+                                            //CADInterface.currentShapes.Add(new Line(lineSpAo, lineEpAo));
                                         }
                                     }
                                 }
@@ -209,7 +209,7 @@ namespace myCad.PaiYangSuanFa
                             listGene[signGene] = moveOper.MovePlate(listGene[signGene],
                                 moveX,
                                 moveY);
-                            CADInterface.DrawShap();
+                            //CADInterface.DrawShap();
                             PointF lineSp = listGene[signGene].RotateCenter;
                             listGene[signGene] = moveOper.MovePlate(listGene[signGene],
                                 -(moveX),
@@ -228,7 +228,7 @@ namespace myCad.PaiYangSuanFa
                             listGuiJi.Add(new Line(lineSp, lineEp));
                             if (count == 1)
                             {
-                                CADInterface.currentShapes.Add(new Line(lineSp, lineEp));
+                                //CADInterface.currentShapes.Add(new Line(lineSp, lineEp));
                             }
                             #endregion
                         }  
@@ -245,7 +245,7 @@ namespace myCad.PaiYangSuanFa
                     {
                         listTrajectory.Add(tj);
                     }
-                    CADInterface.DrawShap();
+                    //CADInterface.DrawShap();
                     //for (int j = 0; j < listGuiJi.Count; j++)
                     //{
                     //    CADInterface.currentShapes.Add(listGuiJi[j]);
@@ -285,7 +285,7 @@ namespace myCad.PaiYangSuanFa
                     //}
                     //MessageBox.Show(sign+"");
                     count = count + 1;
-                    CADInterface.DrawShap();
+                    //CADInterface.DrawShap();
                     //System.Threading.Thread.Sleep(2000);
                 }
                 else
@@ -305,7 +305,7 @@ namespace myCad.PaiYangSuanFa
 
                 //string ssssss = "";
 
-                CADInterface.DrawShap();
+                //CADInterface.DrawShap();
 
                 BaseDelete bDelete = new BaseDelete();
                 for (int i = 0; i < listDeleteId.Count; i++)
@@ -314,7 +314,7 @@ namespace myCad.PaiYangSuanFa
                 }
                 listDeleteId.Clear();
 
-                CADInterface.DrawShap();
+                //CADInterface.DrawShap();
 
                 //if (count == 1)
                 //{
@@ -327,13 +327,13 @@ namespace myCad.PaiYangSuanFa
                     Line line = new Line(stock.ListModel[stock.ListModel.Count - 1].ListShape[k].StartPoint,
                         stock.ListModel[stock.ListModel.Count - 1].ListShape[k].EndPoint);
                     line.PenColor = Color.Red;
-                    line.ShapeID = CADInterface.globalID;
+                    //line.ShapeID = CADInterface.globalID;
                     listDeleteId.Add(line.ShapeID);
-                    CADInterface.globalID = CADInterface.globalID + 1;
-                    CADInterface.currentShapes.Add(line);
+                    //CADInterface.globalID = CADInterface.globalID + 1;
+                    //CADInterface.currentShapes.Add(line);
                     //ssssss = ssssss + line.StartPoint + " :: " + line.EndPoint + "\n";
                 }
-                CADInterface.DrawShap();
+                //CADInterface.DrawShap();
                 //MessageBox.Show(ssssss);
 
                 #region 对原材料碎片进行排序，从大到小，或从大到小
@@ -1013,7 +1013,7 @@ namespace myCad.PaiYangSuanFa
                 #endregion
 
                 #region 第三部，判断头尾，起始点
-                CADInterface.DrawShap();
+                //CADInterface.DrawShap();
 
                 List<BaseShape> newListBaseShape = new AddOper().addLine(newListPoint, false);
 
@@ -1026,7 +1026,7 @@ namespace myCad.PaiYangSuanFa
                 //    line.PenColor = Color.Red;
                 //    CADInterface.currentShapes.Add(line);
                 //}
-                newModelList[newModelList.Count - 1].Draw(CADInterface.bGrp.Graphics);
+                //newModelList[newModelList.Count - 1].Draw(CADInterface.bGrp.Graphics);
                 #endregion
 
                 #region 判断是不是继续进行循环
@@ -1313,9 +1313,9 @@ namespace myCad.PaiYangSuanFa
                 {
                     Line line = (Line)newModelList[newModelList.Count - 1].ListShape[i];
                     line.PenColor = Color.Red;
-                    CADInterface.currentShapes.Add(line);
+                    //CADInterface.currentShapes.Add(line);
                 }
-                newModelList[newModelList.Count - 1].Draw(CADInterface.bGrp.Graphics);
+                //newModelList[newModelList.Count - 1].Draw(CADInterface.bGrp.Graphics);
                 #endregion
 
                 #region 判断是不是继续进行循环

@@ -166,8 +166,8 @@ namespace myCad .DXFOper
                   //}
 
                   //CADInterface.currentPlates.Add(plate.OutModel);          //这里不存在外围面域，下面的判断之后才选定外围面域
-                  CADInterface .currentPlates .AddRange(plate .InnerModel);
-                  CADInterface .DrawShap();
+                  //CADInterface .currentPlates .AddRange(plate .InnerModel);
+                  //CADInterface .DrawShap();
                   plate = modelOper .reSetOutInner(plate);
                   plate = modelOper .juedeIsArc(plate);
                   plate = new CalculateArea() .getPlateArea(plate);

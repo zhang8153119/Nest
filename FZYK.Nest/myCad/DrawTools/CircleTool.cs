@@ -43,9 +43,9 @@ namespace myCad.DrawTools
                     
                     Circle nCircle = new Circle(new PointF(centerPX, centerPY), radius,new PointF(centerPX + radius,centerPY),new PointF(centerPX + radius, centerPY));
                     nCircle.PenColor = color;
-                    nCircle.ShapeID = CADInterface.globalID;
-                    CADInterface.globalID = CADInterface.globalID + 1;
-                    CADInterface.currentShapes.Add(nCircle);
+                    //nCircle.ShapeID = CADInterface.globalID;
+                    //CADInterface.globalID = CADInterface.globalID + 1;
+                    //CADInterface.currentShapes.Add(nCircle);
                     reSet();   //重置变量
                 }
             }
@@ -80,9 +80,9 @@ namespace myCad.DrawTools
                     {
                         Circle nCircle = new Circle(new PointF(centerPX, centerPY), radius, new PointF(centerPX + radius, centerPY), new PointF(centerPX + radius, centerPY));
                         nCircle.PenColor = color;
-                        nCircle.ShapeID = CADInterface.globalID;
-                        CADInterface.globalID = CADInterface.globalID + 1;
-                        CADInterface.currentShapes.Add(nCircle);
+                        //nCircle.ShapeID = CADInterface.globalID;
+                        //CADInterface.globalID = CADInterface.globalID + 1;
+                        //CADInterface.currentShapes.Add(nCircle);
                         listShape.Add(nCircle);
                         int count = 360/5;
                         float spa = 0;

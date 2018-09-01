@@ -10,25 +10,13 @@ namespace myCad .Utility
 {
       public class RectHelper
       {
-            float _angle = 0f;
-            float _angle2 = 0f;
-            float _area = -1f;
-            float _length = 0f;
-            float _height = 0f;
             #region 卡壳算法计算最小包络矩形
             public Dictionary<string, object> MinRect(List<PointF> p)
             {
-                  _angle = 0f;
-                  _area = -1f;
                   List<PointF> pConvexhull = GetConvexHull(p .ToList());
                   //计算最小矩形
-                  Rotating(pConvexhull);
                   Dictionary<string, object> dic = new Dictionary<string, object>();
-                  dic .Add("angle", _angle);
-                  dic .Add("angle2", _angle2);
-                  dic .Add("area", _area);
-                  dic .Add("length", _length);
-                  dic .Add("height", _height);
+                  dic = Rotating(pConvexhull);
                   dic .Add("convexhull", pConvexhull);
                   return dic;
             }
@@ -37,8 +25,13 @@ namespace myCad .Utility
             /// </summary>
             /// <param name="ch"></param>
             /// <returns></returns>
-            public void Rotating(List<PointF> ch)
+            public Dictionary<string, object> Rotating(List<PointF> ch)
             {
+                  float height = 0f;
+                  float length = 0f;
+                  float area = -1f;
+                  float angle = 0f;
+                  float angle2 = 0f;
                   int m;
                   m = ch .Count;
                   int i = 1, j = 1, k = 1;
@@ -54,12 +47,12 @@ namespace myCad .Utility
                               j = t;
                   float h = Dis(ch[k], ch[0], ch[1]);
                   float l = Len(Sub(ch[0], ch[1])) + Math .Abs(Dot(Sub(ch[1], ch[0]), Sub(ch[i], ch[1]))) / Len(Sub(ch[0], ch[1])) + Math .Abs(Dot(Sub(ch[0], ch[1]), Sub(ch[j], ch[0]))) / Len(Sub(ch[0], ch[1]));
-                  if (Max(_area, h * l))
+                  if (Max(area, h * l))
                   {
-                        _height = h;
-                        _length = l;
-                        _area = h * l;
-                        _angle = Angle(ch[0], ch[1]);
+                        height = h;
+                        length = l;
+                        area = h * l;
+                        angle = Angle(ch[0], ch[1]);
                   }
                   ch .Add(ch[0]);
                   //ch[m] = ch[0];
@@ -77,31 +70,32 @@ namespace myCad .Utility
                               j = ((j - 1) % m + m) % m;
                         h = Dis(ch[k], ch[t], ch[t + 1]);
                         l = Len(Sub(ch[t], ch[t + 1])) + Math .Abs(Dot(Sub(ch[t + 1], ch[t]), Sub(ch[i], ch[t + 1]))) / Len(Sub(ch[t], ch[t + 1])) + Math .Abs(Dot(Sub(ch[t], ch[t + 1]), Sub(ch[j], ch[t]))) / Len(Sub(ch[t], ch[t + 1]));
-                        if (Max(_area, h * l))
+                        if (Max(area, h * l))
                         {
-                              _height = h;
-                              _length = l;
-                              _area = h * l;
-                              _angle = Angle(ch[t], ch[t + 1]);
+                              height = h;
+                              length = l;
+                              area = h * l;
+                              angle = Angle(ch[t], ch[t + 1]);
                         }
                   }
+                  Dictionary<string, object> dic = new Dictionary<string, object>();
+                  dic .Add("angle", angle);
+                  dic .Add("angle2", angle2);
+                  dic .Add("area", area);
+                  dic .Add("length", length);
+                  dic .Add("height", height);
+
+                  return dic;
             }
 
             #endregion
             #region 中位线算法计算最小包络平行四边形
             public Dictionary<string, object> MinParallelogram(List<PointF> p)
             {
-                  _angle = 0f;
-                  _area = -1f;
                   List<PointF> pConvexhull = GetConvexHull(p .ToList());
-                  //计算最小矩形
-                  Median(pConvexhull);
+                  //计算最小平行四边形
                   Dictionary<string, object> dic = new Dictionary<string, object>();
-                  dic .Add("angle", _angle);
-                  dic .Add("angle2", _angle2);
-                  dic .Add("area", _area);
-                  dic .Add("length", _length);
-                  dic .Add("height", _height);
+                  dic = Median(pConvexhull);
                   dic .Add("convexhull", pConvexhull);
                   return dic;
             }
@@ -109,8 +103,13 @@ namespace myCad .Utility
             /// 中位线法求最小平行四边形，因只处理合并图形，图形为对称，偶数个顶点和边
             /// </summary>
             /// <param name="plist"></param>
-            public void Median(List<PointF> ch)
+            public Dictionary<string, object> Median(List<PointF> ch)
             {
+                  float height = 0f;
+                  float length = 0f;
+                  float area = -1f;
+                  float angle = 0f;
+                  float angle2 = 0f;
                   int n = ch .Count;
                   List<int> indexlist = new List<int>();//已经和其他边组成平行四边形，就跳过搜索
                   float mins = -1;
@@ -157,13 +156,20 @@ namespace myCad .Utility
                         if (mins < 0 || s < mins)
                         {
                               mins = s;
-                              _area = mins;
-                              _angle = Angle(ch[i], ch[i + 1]);
-                              _angle2 = Angle(ch[index], ch[(index + 1) % n]);
-                              _height = Math .Min(h1, h2);
-                              _length = Math .Max(h1, h2);
+                              area = mins;
+                              angle = Angle(ch[i], ch[i + 1]);
+                              angle2 = Angle(ch[index], ch[(index + 1) % n]);
+                              height = Math .Min(h1, h2);
+                              length = Math .Max(h1, h2);
                         }
                   }
+                  Dictionary<string, object> dic = new Dictionary<string, object>();
+                  dic .Add("angle", angle);
+                  dic .Add("angle2", angle2);
+                  dic .Add("area", area);
+                  dic .Add("length", length);
+                  dic .Add("height", height);
+                  return dic;
             }
             #endregion
             #region 多边形获取凸包

@@ -45,9 +45,9 @@ namespace myCad .DrawTools
                         {
                               Line nLine = new Line(new PointF(spX, spY), new PointF(epX, epY));
                               nLine .PenColor = color;
-                              nLine .ShapeID = CADInterface .globalID;
-                              CADInterface .globalID = CADInterface .globalID + 1;
-                              CADInterface .currentShapes .Add(nLine);
+                              //nLine .ShapeID = CADInterface .globalID;
+                              //CADInterface .globalID = CADInterface .globalID + 1;
+                              //CADInterface .currentShapes .Add(nLine);
                               reSet();   //重置变量
                         }
                   }
@@ -82,9 +82,9 @@ namespace myCad .DrawTools
                               {
                                     Line nLine = new Line(new PointF(spX, spY), new PointF(epX, epY));
                                     nLine .PenColor = color;
-                                    nLine .ShapeID = CADInterface .globalID;
-                                    CADInterface .globalID = CADInterface .globalID + 1;
-                                    CADInterface .currentShapes .Add(nLine);
+                                    //nLine .ShapeID = CADInterface .globalID;
+                                    //CADInterface .globalID = CADInterface .globalID + 1;
+                                    //CADInterface .currentShapes .Add(nLine);
                                     listShape .Add(nLine);
                               }
                               reSet();   //重置变量

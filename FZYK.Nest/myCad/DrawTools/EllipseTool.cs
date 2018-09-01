@@ -101,9 +101,9 @@ namespace myCad.DrawTools
                         newSp,newEp,
                         complete);
                     nEllipse.PenColor = color;
-                    nEllipse.ShapeID = CADInterface.globalID;
-                    CADInterface.globalID = CADInterface.globalID + 1;
-                    CADInterface.currentShapes.Add(nEllipse);
+                    //nEllipse.ShapeID = CADInterface.globalID;
+                    //CADInterface.globalID = CADInterface.globalID + 1;
+                    //CADInterface.currentShapes.Add(nEllipse);
                     reSet();   //重置变量
                 }
             }
@@ -229,10 +229,10 @@ namespace myCad.DrawTools
                             newSp, newEp,
                             complete);
                         nEllipse.PenColor = color;
-                        nEllipse.ShapeID = CADInterface.globalID;
+                        //nEllipse.ShapeID = CADInterface.globalID;
                         nEllipse.ListPoint.AddRange(listPoint);
-                        CADInterface.globalID = CADInterface.globalID + 1;
-                        CADInterface.currentShapes.Add(nEllipse);
+                        //CADInterface.globalID = CADInterface.globalID + 1;
+                        //CADInterface.currentShapes.Add(nEllipse);
                         listShape.Add(nEllipse);
                     }
                     reSet();   //重置变量

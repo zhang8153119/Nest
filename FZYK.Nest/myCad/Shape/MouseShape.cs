@@ -42,10 +42,10 @@ namespace myCad.Shape
         /// 绘制鼠标
         /// </summary>
         /// <param name="g">画板</param>
-        public static void Draw(Graphics g)
+        public static void Draw(Graphics g,float zoomNum)
         {
 
-            g.TranslateTransform(mousePoint.X * CADInterface.globalZoomNum, mousePoint.Y * CADInterface.globalZoomNum);
+            g.TranslateTransform(mousePoint.X * zoomNum, mousePoint.Y * zoomNum);
             switch (MStyle)
             {
                 case MouseStyle.Normal:

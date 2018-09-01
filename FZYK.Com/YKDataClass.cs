@@ -15,11 +15,11 @@ namespace FZYK.Com
     {
         ///<summary>数据库连接字符串</summary>
 
-        public static string ConnectionString = "";
+        public static string ConnectionString = "Persist Security Info=False; Data Source=.; Connect Timeout = 600; User ID = sa; Password=sa; Initial Catalog = 常熟";
 
         #region 公用方法
-        ///<summary>获得一个打开的连接(使用后记得关闭)</summary>
-        public static SqlConnection Connection()
+            ///<summary>获得一个打开的连接(使用后记得关闭)</summary>
+            public static SqlConnection Connection()
         {
             SqlConnection conn = new SqlConnection(ConnectionString);
             SqlCommand command = new SqlCommand();

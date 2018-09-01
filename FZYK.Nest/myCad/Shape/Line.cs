@@ -65,12 +65,12 @@ namespace myCad .Shape
 
             private PointF SP, EP;
 
-            public override void Draw(Graphics g)
+            public override void Draw(Graphics g, float zoomNum)
             {
                   Pen pen = new Pen(this .PenColor, 0.1f);
                   pen .DashStyle = this .PenStyle;
-                  SP = new PointF(StartPoint .X * CADInterface .globalZoomNum, StartPoint .Y * CADInterface .globalZoomNum);
-                  EP = new PointF(EndPoint .X * CADInterface .globalZoomNum, EndPoint .Y * CADInterface .globalZoomNum);
+                  SP = new PointF(StartPoint .X * zoomNum, StartPoint .Y * zoomNum);
+                  EP = new PointF(EndPoint .X * zoomNum, EndPoint .Y * zoomNum);
 
                   switch (Show)
                   {

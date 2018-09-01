@@ -9,6 +9,7 @@ using System .Windows .Forms;
 
 namespace myCad .Shape
 {
+      
       public abstract class BaseShape
       {
             private string shapeClass = "";                              //图形的类型
@@ -28,7 +29,7 @@ namespace myCad .Shape
 
             private bool isSelected = false;                             //是否选中
 
-            public abstract void Draw(Graphics g);                   //画图抽象接口
+            public abstract void Draw(Graphics g,float zoomNum);                   //画图抽象接口
 
             public DisplayStyle Show
             {

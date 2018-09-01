@@ -16,19 +16,19 @@ namespace myCad.BaseShapeOper
         /// <param name="deleteID"></param>
         public void detele(int deleteID)
         {
-            int index = -99;
-            for (int i = 0; i < CADInterface.currentShapes.Count; i++)
-            {
-                if (CADInterface.currentShapes[i].ShapeID == deleteID)
-                {
-                    index = i;
-                    break;
-                }
-            }
-            if (!(index == -99))
-            {
-                CADInterface.currentShapes.RemoveAt(index);
-            }
+            //int index = -99;
+            //for (int i = 0; i < CADInterface.currentShapes.Count; i++)
+            //{
+            //    if (CADInterface.currentShapes[i].ShapeID == deleteID)
+            //    {
+            //        index = i;
+            //        break;
+            //    }
+            //}
+            //if (!(index == -99))
+            //{
+            //    CADInterface.currentShapes.RemoveAt(index);
+            //}
         }
     }
 }

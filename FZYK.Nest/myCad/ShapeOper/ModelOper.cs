@@ -161,8 +161,8 @@ namespace myCad.ShapeOper
                     }
                     #endregion
                 }
-                newModel.ModelId = CADInterface.globalModelID;
-                CADInterface.globalModelID = CADInterface.globalModelID + 1;
+                //newModel.ModelId = CADInterface.globalModelID;
+                //CADInterface.globalModelID = CADInterface.globalModelID + 1;
                 listModel.Add(newModel);
             }
             plate.InnerModel.AddRange(listModel);

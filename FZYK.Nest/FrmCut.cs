@@ -335,9 +335,9 @@ namespace FZYK .Nest
                   _bgtest .Graphics .Clear(Color .White);
                   _bgtest .Render();
 
-                  CADInterface .currentShapes .Clear();
-                  CADInterface .currentPlates .Clear();
-                  CADInterface .DrawShap();
+                  cad .currentShapes .Clear();
+                  cad .currentPlates .Clear();
+                  cad .DrawShap();
                   _thisindex = 0;
             }
             /// <summary>
@@ -471,8 +471,8 @@ namespace FZYK .Nest
                         pm .id = i;
                         _part .Add(pm);
 
-                        CADInterface .currentShapes .Clear();
-                        CADInterface .currentPlates .Clear();
+                        cad .currentShapes .Clear();
+                        cad .currentPlates .Clear();
 
                         if (cmbType .Text == "")
                         {
@@ -544,7 +544,7 @@ namespace FZYK .Nest
                   _grid = gh .GetGridValue(pm, T) .Grid;
                   _bgtest .Graphics .Clear(Color .White);
                   DrawPart();
-                  CADInterface .DrawShap();
+                  cad .DrawShap();
             }
             /// <summary>
             /// 最小矩形
@@ -599,12 +599,12 @@ namespace FZYK .Nest
                                     jd = jiaodu;
                                     best = pm .Copy();
                               }
-                              CADInterface .DrawShap();
+                              cad .DrawShap();
                               //Thread .Sleep(1000);
                         }
                   }
                   new CopyOper() .CopyPlate(best);
-                  CADInterface .DrawShap();
+                  cad .DrawShap();
                   txtrectarea .Text = maxarea .ToString();
                   watch .Stop();  //停止监视
                   TimeSpan timespan = watch .Elapsed;  //获取当前实例测量得出的总时间
@@ -636,7 +636,7 @@ namespace FZYK .Nest
                   DrawLines(pmnew .OutModel .ListPoint);
                   platehelper .RotateAndMove(pm, pmnew, Convert .ToSingle(dicCombine2["angle"]));
 
-                  CADInterface .DrawShap();
+                  cad .DrawShap();
 
                   watch .Stop();  //停止监视
                   TimeSpan timespan = watch .Elapsed;  //获取当前实例测量得出的总时间
@@ -653,9 +653,9 @@ namespace FZYK .Nest
                               next = 0;
                         Line nLine = new Line(new PointF(chcombine[i] .X, chcombine[i] .Y), new PointF(chcombine[next] .X, chcombine[next] .Y));
                         nLine .PenColor = Color .Red;
-                        nLine .ShapeID = CADInterface .globalID;
-                        CADInterface .globalID = CADInterface .globalID + 1;
-                        CADInterface .currentShapes .Add(nLine);
+                        nLine .ShapeID = cad .globalID;
+                        cad .globalID = cad .globalID + 1;
+                        cad .currentShapes .Add(nLine);
                   }
             }
             int _thisindex = 0;
@@ -714,7 +714,7 @@ namespace FZYK .Nest
                         _grid = gh .GetGridValue(pmnew, T) .Grid;
                         _bgtest .Graphics .Clear(Color .White);
                         DrawPart();
-                        CADInterface .DrawShap();
+                        cad .DrawShap();
                   }
                   _thisindex++;
             }
@@ -2714,26 +2714,26 @@ namespace FZYK .Nest
 
             private void btndraw_Click(object sender, EventArgs e)
             {
-                  CADInterface .currentShapes .Clear();
-                  CADInterface .currentPlates .Clear();
+                  cad .currentShapes .Clear();
+                  cad .currentPlates .Clear();
 
-                  //CADInterface .currentPlates .Add(_part[0] .OutModel);
+                  //cad .currentPlates .Add(_part[0] .OutModel);
                   //for(int i = 0;i< _part[0] .InnerModel.Count;i++)
                   //{
-                  //      CADInterface .currentPlates .Add(_part[0] .InnerModel[i]);
+                  //      cad .currentPlates .Add(_part[0] .InnerModel[i]);
                   //}
-                  CADInterface .currentShapes .AddRange(_part[0] .OutModel .ListShape);
+                  cad .currentShapes .AddRange(_part[0] .OutModel .ListShape);
                   for (int i = 0; i < _part[0] .InnerModel .Count; i++)
                   {
-                        CADInterface .currentShapes .AddRange(_part[0] .InnerModel[i] .ListShape);
+                        cad .currentShapes .AddRange(_part[0] .InnerModel[i] .ListShape);
                   }
 
-                  CADInterface .currentShapes .AddRange(_part[1] .OutModel .ListShape);
+                  cad .currentShapes .AddRange(_part[1] .OutModel .ListShape);
                   for (int i = 0; i < _part[1] .InnerModel .Count; i++)
                   {
-                        CADInterface .currentShapes .AddRange(_part[1] .InnerModel[i] .ListShape);
+                        cad .currentShapes .AddRange(_part[1] .InnerModel[i] .ListShape);
                   }
-                  CADInterface .DrawShap();
+                  cad .DrawShap();
             }
             /// <summary>
             /// 画排料图，线图
@@ -2742,9 +2742,9 @@ namespace FZYK .Nest
             private void DrawStockLine(Stock s)
             {
                   PlateHelper ph = new PlateHelper();
-                  CADInterface .currentShapes .Clear();
-                  CADInterface .currentPlates .Clear();
-                  CADInterface .DrawShap();
+                  cad .currentShapes .Clear();
+                  cad .currentPlates .Clear();
+                  cad .DrawShap();
 
                   List<PartInfo> part = s .PartInfoList;
                   List<BaseShape> bs = new List<BaseShape>();
@@ -2762,11 +2762,11 @@ namespace FZYK .Nest
                               pm = ph .RotateAndMove(pm, angle);
                               pm = ph .Move(pm, p .X, p .Y);
                               new RotateOper() .RotateCSYS(pm, s .Height);//旋转坐标系
-                              CADInterface .currentShapes .AddRange(pm .OutModel .ListShape);
-                              CADInterface .currentShapes .Add(new Text(pm .PlateName .ToString(), pm .PowCenter, 0, 20));
+                              cad .currentShapes .AddRange(pm .OutModel .ListShape);
+                              cad .currentShapes .Add(new Text(pm .PlateName .ToString(), pm .PowCenter, 0, 20));
                               for (int j = 0; j < pm .InnerModel .Count; i++)
                               {
-                                    CADInterface .currentShapes .AddRange(pm .InnerModel[i] .ListShape);
+                                    cad .currentShapes .AddRange(pm .InnerModel[i] .ListShape);
                               }
 
                               string key = id .ToString() + "/" + angle .ToString();
@@ -2786,18 +2786,18 @@ namespace FZYK .Nest
 
                               new RotateOper() .RotateCSYS(pm1, s .Height);
                               new RotateOper() .RotateCSYS(pm2, s .Height);
-                              CADInterface .currentShapes .AddRange(pm1 .OutModel .ListShape);
-                              CADInterface .currentShapes .Add(new Text(pm1 .PlateName .ToString(), pm1 .PowCenter, 0, 20));
+                              cad .currentShapes .AddRange(pm1 .OutModel .ListShape);
+                              cad .currentShapes .Add(new Text(pm1 .PlateName .ToString(), pm1 .PowCenter, 0, 20));
                               for (int j = 0; j < pm1 .InnerModel .Count; i++)
                               {
-                                    CADInterface .currentShapes .AddRange(pm1 .InnerModel[i] .ListShape);
+                                    cad .currentShapes .AddRange(pm1 .InnerModel[i] .ListShape);
                               }
 
-                              CADInterface .currentShapes .AddRange(pm2 .OutModel .ListShape);
-                              CADInterface .currentShapes .Add(new Text(pm2 .PlateName .ToString(), pm2 .PowCenter, 0, 20));
+                              cad .currentShapes .AddRange(pm2 .OutModel .ListShape);
+                              cad .currentShapes .Add(new Text(pm2 .PlateName .ToString(), pm2 .PowCenter, 0, 20));
                               for (int j = 0; j < pm2 .InnerModel .Count; i++)
                               {
-                                    CADInterface .currentShapes .AddRange(pm2 .InnerModel[i] .ListShape);
+                                    cad .currentShapes .AddRange(pm2 .InnerModel[i] .ListShape);
                               }
 
                               string key = "C" + id .ToString() + "/" + angle .ToString();
@@ -2821,8 +2821,8 @@ namespace FZYK .Nest
                   bs .Add(Line3);
                   bs .Add(Line4);
                   new RotateOper() .RotateCSYS(bs, s .Height);
-                  CADInterface .currentShapes .AddRange(bs);
-                  CADInterface .DrawShap();
+                  cad .currentShapes .AddRange(bs);
+                  cad .DrawShap();
             }
             private void AddGridLine(ref List<BaseShape> bs, int[,] array, PointF p, float T)
             {
@@ -2889,7 +2889,7 @@ namespace FZYK .Nest
             /// <param name="e"></param>
             private void btnBig_Click(object sender, EventArgs e)
             {
-                  CADInterface .currentShapes .Clear();
+                  cad .currentShapes .Clear();
                   PlateModel pm = _part[0];
                   CopyOper co = new CopyOper();
                   PlateModel pmnew = co .CopyPlate(pm);
@@ -2902,9 +2902,9 @@ namespace FZYK .Nest
                   //      line .Add(l);
                   //}
 
-                  CADInterface .currentShapes .AddRange(pm .OutModel .ListShape);
-                  CADInterface .currentShapes .AddRange(pm .OutModel .ExpandShape);
-                  CADInterface .DrawShap();
+                  cad .currentShapes .AddRange(pm .OutModel .ListShape);
+                  cad .currentShapes .AddRange(pm .OutModel .ExpandShape);
+                  cad .DrawShap();
             }
       }
 }

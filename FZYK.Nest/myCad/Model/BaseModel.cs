@@ -31,12 +31,12 @@ namespace myCad .Model
 
             public List<BaseShape> ExpandShape { get; set; } = new List<BaseShape>();
             public List<PointF> ExpandPoint { get; set; } = new List<PointF>();
-            public virtual void Draw(Graphics g)
+            public virtual void Draw(Graphics g,float zoomNum)
             {
                   if (!IsBound)
                   {
                         Matrix old = g .Transform;
-                        g .ScaleTransform(CADInterface .globalZoomNum, CADInterface .globalZoomNum);
+                        g .ScaleTransform(zoomNum, zoomNum);
                         GraphicPath = new CreateRegion() .getModelPath(listShape);
                         //GraphicPath.Flatten();
                         pathRegion = new CreateRegion() .getModelRegion(GraphicPath);

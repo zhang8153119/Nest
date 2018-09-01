@@ -110,13 +110,13 @@ namespace myCad.Shape
             }
         }
 
-        public override void Draw(Graphics g)
+        public override void Draw(Graphics g,float zoomNum)
         {
 
-            rectShow.X = rect.X * CADInterface.globalZoomNum;//与Canvas类中的DrawShap方法中容器里的比例相反
-            rectShow.Y = rect.Y * CADInterface.globalZoomNum;
-            rectShow.Width = rect.Width * CADInterface.globalZoomNum;
-            rectShow.Height = rect.Height * CADInterface.globalZoomNum;
+            rectShow.X = rect.X * zoomNum;//与Canvas类中的DrawShap方法中容器里的比例相反
+            rectShow.Y = rect.Y * zoomNum;
+            rectShow.Width = rect.Width * zoomNum;
+            rectShow.Height = rect.Height * zoomNum;
 
             if (IsSelectRect)
             {

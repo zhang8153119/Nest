@@ -21,70 +21,70 @@ namespace myCad .DrawTools
             //动态选择，显示高亮但是不是选中
             public virtual void getHit()
             {
-                  if (CADInterface .currentShapes == null) return;
-                  for (int i = CADInterface .currentShapes .Count - 1; i >= 0; i--)//在图元重叠或相交处拾取时，最后画的先拾取。
-                  {
-                        if (CADInterface .currentShapes[i] .IsSelected == true) continue;
-                        if (CADInterface .currentShapes[i] .IntersectsWith(MouseShape .HitRect))
-                        {
-                              CADInterface .currentShapes[i] .Show = DisplayStyle .Hit;
-                              isHited = true;
-                              return;
-                        }
-                        else
-                        {
-                              CADInterface .currentShapes[i] .Show = DisplayStyle .Normal;
-                              isHited = false;
-                        }
-                  }
+                  //if (CADInterface .currentShapes == null) return;
+                  //for (int i = CADInterface .currentShapes .Count - 1; i >= 0; i--)//在图元重叠或相交处拾取时，最后画的先拾取。
+                  //{
+                  //      if (CADInterface .currentShapes[i] .IsSelected == true) continue;
+                  //      if (CADInterface .currentShapes[i] .IntersectsWith(MouseShape .HitRect))
+                  //      {
+                  //            CADInterface .currentShapes[i] .Show = DisplayStyle .Hit;
+                  //            isHited = true;
+                  //            return;
+                  //      }
+                  //      else
+                  //      {
+                  //            CADInterface .currentShapes[i] .Show = DisplayStyle .Normal;
+                  //            isHited = false;
+                  //      }
+                  //}
             }
 
             //点选图形
             public virtual void PointSelect()
             {
-                  if (CADInterface .currentShapes == null) return;
+                  //if (CADInterface .currentShapes == null) return;
 
-                  //后画的优先被选中
-                  for (int i = CADInterface .currentShapes .Count - 1; i >= 0; i--)
-                  {
-                        if (CADInterface .currentShapes[i] .IntersectsWith(MouseShape .HitRect))
-                        {
-                              CADInterface .currentShapes[i] .Show = DisplayStyle .Edit;
-                              CADInterface .currentShapes[i] .IsSelected = true;
-                              isHited = false;
-                              return;
-                        }
-                  }
+                  ////后画的优先被选中
+                  //for (int i = CADInterface .currentShapes .Count - 1; i >= 0; i--)
+                  //{
+                  //      if (CADInterface .currentShapes[i] .IntersectsWith(MouseShape .HitRect))
+                  //      {
+                  //            CADInterface .currentShapes[i] .Show = DisplayStyle .Edit;
+                  //            CADInterface .currentShapes[i] .IsSelected = true;
+                  //            isHited = false;
+                  //            return;
+                  //      }
+                  //}
             }
 
             //正框选图元（图元必须整个被包围在矩形框内方可被选中）
             public virtual void RectSelectPositive()
             {
-                  if (CADInterface .currentShapes == null) return;
+                  //if (CADInterface .currentShapes == null) return;
 
-                  for (int i = CADInterface .currentShapes .Count - 1; i >= 0; i--)
-                  {
-                        if (CADInterface .currentShapes[i] .SurroundedBy(positiveRect))
-                        {
-                              CADInterface .currentShapes[i] .Show = DisplayStyle .Edit;
-                              CADInterface .currentShapes[i] .IsSelected = true;
-                        }
-                  }
+                  //for (int i = CADInterface .currentShapes .Count - 1; i >= 0; i--)
+                  //{
+                  //      if (CADInterface .currentShapes[i] .SurroundedBy(positiveRect))
+                  //      {
+                  //            CADInterface .currentShapes[i] .Show = DisplayStyle .Edit;
+                  //            CADInterface .currentShapes[i] .IsSelected = true;
+                  //      }
+                  //}
             }
 
             //反框选图元（图元部分被包围在矩形框内即可被选中）
             public virtual void RectSelectNegative()
             {
-                  if (CADInterface .currentShapes == null) return;
+                  //if (CADInterface .currentShapes == null) return;
 
-                  for (int i = CADInterface .currentShapes .Count - 1; i >= 0; i--)
-                  {
-                        if (CADInterface .currentShapes[i] .IntersectsWith(negativeRect))
-                        {
-                              CADInterface .currentShapes[i] .Show = DisplayStyle .Edit;
-                              CADInterface .currentShapes[i] .IsSelected = true;
-                        }
-                  }
+                  //for (int i = CADInterface .currentShapes .Count - 1; i >= 0; i--)
+                  //{
+                  //      if (CADInterface .currentShapes[i] .IntersectsWith(negativeRect))
+                  //      {
+                  //            CADInterface .currentShapes[i] .Show = DisplayStyle .Edit;
+                  //            CADInterface .currentShapes[i] .IsSelected = true;
+                  //      }
+                  //}
             }
 
             public virtual void MouseDown(MouseEventArgs e)
@@ -102,26 +102,26 @@ namespace myCad .DrawTools
 
             public virtual void KeyDown(KeyEventArgs e)
             {
-                  if (e .KeyCode == Keys .Escape)
-                  {
-                        foreach (BaseShape item in CADInterface .currentShapes)
-                        {
-                              item .IsSelected = false;
-                              item .Show = DisplayStyle .Normal;
-                        }
+                  //if (e .KeyCode == Keys .Escape)
+                  //{
+                  //      foreach (BaseShape item in CADInterface .currentShapes)
+                  //      {
+                  //            item .IsSelected = false;
+                  //            item .Show = DisplayStyle .Normal;
+                  //      }
 
-                        //UnLoadTool();
-                  }
+                  //      //UnLoadTool();
+                  //}
             }
 
             public virtual void LoadTool()
             {
-                  foreach (BaseShape item in CADInterface .currentShapes)
-                  {
-                        item .IsSelected = false;
-                        item .Show = DisplayStyle .Normal;
-                  }
-                  CADInterface .DrawShap();
+                  //foreach (BaseShape item in CADInterface .currentShapes)
+                  //{
+                  //      item .IsSelected = false;
+                  //      item .Show = DisplayStyle .Normal;
+                  //}
+                  //CADInterface .DrawShap();
             }
 
             public virtual void UnLoadTool()
@@ -133,8 +133,8 @@ namespace myCad .DrawTools
                               break;
 
                         case 1:
-                              if (CADInterface .currentShapes .Count == 0) return;
-                              CADInterface .currentShapes .RemoveAt(CADInterface .currentShapes .Count - 1);
+                              //if (CADInterface .currentShapes .Count == 0) return;
+                              //CADInterface .currentShapes .RemoveAt(CADInterface .currentShapes .Count - 1);
                               count = 0;
                               break;
                   }

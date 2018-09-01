@@ -48,9 +48,9 @@ namespace myCad.DrawTools
                     float epa = (float)(Math.PI / 180) * epAngle;
                     Arc nArc = new Arc(new PointF(centerPX, centerPY), radius, spAngle, epAngle, new PointF((float)(centerPX + radius * Math.Cos(spa)), (float)(centerPY + radius * Math.Sin(spa))), new PointF((float)(centerPX + radius * Math.Cos(epa)), (float)(centerPY + radius * Math.Sin(epa))));
                     nArc.PenColor = color;
-                    nArc.ShapeID = CADInterface.globalID;
-                    CADInterface.globalID = CADInterface.globalID + 1;
-                    CADInterface.currentShapes.Add(nArc);
+                    //nArc.ShapeID = CADInterface.globalID;
+                    //CADInterface.globalID = CADInterface.globalID + 1;
+                    //CADInterface.currentShapes.Add(nArc);
                     reSet();   //重置变量
                 }
             }
@@ -90,9 +90,9 @@ namespace myCad.DrawTools
                             new PointF((float)(centerPX + radius * Math.Cos(spa)), (float)(centerPY + radius * Math.Sin(spa))),
                             new PointF((float)(centerPX + radius * Math.Cos(epa)), (float)(centerPY + radius * Math.Sin(epa))));
                         nArc.PenColor = color;
-                        nArc.ShapeID = CADInterface.globalID;
-                        CADInterface.globalID = CADInterface.globalID + 1;
-                        CADInterface.currentShapes.Add(nArc);
+                        //nArc.ShapeID = CADInterface.globalID;
+                        //CADInterface.globalID = CADInterface.globalID + 1;
+                        //CADInterface.currentShapes.Add(nArc);
                         listShape.Add(nArc);
 
                         #region 获取圆弧上的分割点，每5°获取一个值

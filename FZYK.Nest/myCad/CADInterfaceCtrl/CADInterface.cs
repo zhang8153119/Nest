@@ -16,19 +16,29 @@ namespace myCad .CADInterfaceCtrl
             }
 
             #region 参数
-            public static BufferedGraphics bGrp = null;                                   //缓冲
-            public static float globalZoomNum = 1;                                 //记录每次比例缩放后的总体比例系数。(变化比例)
-            public static float scaleNum = 1;                                      //界面缩放比例
-            public static RectangleF drawRegionRect;                               //
-            public static List<BaseShape> currentShapes = new List<BaseShape>();   //当前界面上得图形
-            public static List<BaseModel> currentPlates = new List<BaseModel>();   //当前界面上的钢板
-            public static Stock nowStock = new Stock();                            //当前原材料钢板
-            public static MRectangle selectRect = new MRectangle();
-            public static int globalID = 0;                                         //记录线段的ID
-            public static int globalModelID = 0;                                    //记录model的ID
+            public BufferedGraphics bGrp { get; set; } = null;                                   //缓冲
+            public float globalZoomNum { get; set; } = 1;                                 //记录每次比例缩放后的总体比例系数。(变化比例)
+            public float scaleNum { get; set; } = 1;                                      //界面缩放比例
+            public RectangleF drawRegionRect { get; set; } = new RectangleF(0, 0, 0, 0);                              //
+            public List<BaseShape> currentShapes { get; set; } = null;   //当前界面上得图形
+            public List<BaseModel> currentPlates { get; set; } = null;   //当前界面上的钢板
+            public Stock nowStock { get; set; } = null;                            //当前原材料钢板
+            public MRectangle selectRect { get; set; } = null;
+            public int globalID { get; set; } = 0;                                         //记录线段的ID
+            public int globalModelID { get; set; } = 0;                                    //记录model的ID
 
             #endregion
-
+            /// <summary>
+            /// 初始化
+            /// </summary>
+            public void Init()
+            {
+                  currentShapes = new List<Shape .BaseShape>();
+                  currentPlates = new List<BaseModel>();
+                  selectRect = new MRectangle();
+                  nowStock = new Stock();
+                  GetDrawRegionRect();
+            }
             /// <summary>
             /// 重写加载
             /// </summary>
@@ -155,7 +165,7 @@ namespace myCad .CADInterfaceCtrl
             /// <summary>
             /// 原始界面画图
             /// </summary>
-            public static void DrawShap()
+            public void DrawShap()
             {
                   try
                   {
@@ -170,7 +180,7 @@ namespace myCad .CADInterfaceCtrl
                         {
                               if (!"Text" .Equals(item .ShapeClass))
                               {
-                                    item .Draw(bGrp .Graphics);
+                                    item .Draw(bGrp .Graphics, globalZoomNum);
                               }
                         }
 
@@ -178,22 +188,22 @@ namespace myCad .CADInterfaceCtrl
                         {
                               foreach (BaseShape item in nowStock .StockForm)
                               {
-                                    item .Draw(bGrp .Graphics);
+                                    item .Draw(bGrp .Graphics, globalZoomNum);
                               }
                         }
 
                         foreach (BaseModel item in currentPlates)
                         {
-                              item .Draw(bGrp .Graphics);
+                              item .Draw(bGrp .Graphics, globalZoomNum);
                         }
 
                         //SnapPointShape.Draw(bGrp.Graphics);
 
-                        selectRect .Draw(bGrp .Graphics);
+                        selectRect .Draw(bGrp .Graphics, globalZoomNum);
 
                         CoordinateShape .Draw(bGrp .Graphics);
 
-                        MouseShape .Draw(bGrp .Graphics);
+                        MouseShape .Draw(bGrp .Graphics, globalZoomNum);
 
                         bGrp .Graphics .EndContainer(drawContainer);
 
@@ -205,7 +215,7 @@ namespace myCad .CADInterfaceCtrl
                         {
                               if ("Text" .Equals(item .ShapeClass))
                               {
-                                    item .Draw(bGrp .Graphics);
+                                    item .Draw(bGrp .Graphics, globalZoomNum);
                               }
                         }
 

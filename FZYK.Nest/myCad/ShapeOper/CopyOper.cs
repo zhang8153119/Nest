@@ -35,8 +35,8 @@ namespace myCad .ShapeOper
                   newOutModel .IsInner = plate .OutModel .IsInner;
                   newOutModel .Area = plate .OutModel .Area;
                   newOutModel .Bound = plate .OutModel .Bound;
-                  newOutModel .ModelId = CADInterface .globalModelID;
-                  CADInterface .globalModelID = CADInterface .globalModelID + 1;
+                  //newOutModel .ModelId = CADInterface .globalModelID;
+                  //CADInterface .globalModelID = CADInterface .globalModelID + 1;
                   //CADInterface .currentPlates .Add(newOutModel);
                   //newOutModel.Draw(CADInterface.bGrp.Graphics);
                   copyPlate .OutModel = newOutModel;
@@ -56,8 +56,8 @@ namespace myCad .ShapeOper
                               newInnerModel .Area = plate .InnerModel[i] .Area;
                               newInnerModel .Bound = plate .InnerModel[i] .Bound;
                               //newInnerModel.Draw(CADInterface.bGrp.Graphics);
-                              newInnerModel .ModelId = CADInterface .globalModelID;
-                              CADInterface .globalModelID = CADInterface .globalModelID + 1;
+                              //newInnerModel .ModelId = CADInterface .globalModelID;
+                              //CADInterface .globalModelID = CADInterface .globalModelID + 1;
                               //CADInterface .currentPlates .Add(newInnerModel);
                               copyPlate .InnerModel .Add(newInnerModel);
                         }
@@ -102,8 +102,8 @@ namespace myCad .ShapeOper
                   {
                         newModel .ListShape .Add(copy(model .ListShape[i]));
                   }
-                  newModel .ModelId = CADInterface .globalModelID;
-                  CADInterface .globalModelID = CADInterface .globalModelID + 1;
+                  //newModel .ModelId = CADInterface .globalModelID;
+                  //CADInterface .globalModelID = CADInterface .globalModelID + 1;
                   //CADInterface .currentPlates .Add(newModel);
 
                   return newModel;

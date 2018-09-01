@@ -44,9 +44,9 @@ namespace myCad.DrawTools
                 {
                     Text nText = new Text(text, new PointF(localPointX, localPointY), angle, textWidth);
                     nText.PenColor = color;
-                    nText.ShapeID = CADInterface.globalID;
-                    CADInterface.globalID = CADInterface.globalID + 1;
-                    CADInterface.currentShapes.Add(nText);
+                    //nText.ShapeID = CADInterface.globalID;
+                    //CADInterface.globalID = CADInterface.globalID + 1;
+                    //CADInterface.currentShapes.Add(nText);
                     reSet();      //重置变量
                 }
             }

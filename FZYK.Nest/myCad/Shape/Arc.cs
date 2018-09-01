@@ -116,11 +116,11 @@ namespace myCad.Shape
 
         private float leftUpPX, leftUpPY, rad;
 
-        public override void Draw(Graphics g)
+        public override void Draw(Graphics g,float zoomNum)
         {
-            leftUpPX = (centerPoint.X - radius) * CADInterface.globalZoomNum;
-            leftUpPY = (centerPoint.Y - radius) * CADInterface.globalZoomNum;
-            rad = 2 * radius * CADInterface.globalZoomNum;
+            leftUpPX = (centerPoint.X - radius) * zoomNum;
+            leftUpPY = (centerPoint.Y - radius) * zoomNum;
+            rad = 2 * radius * zoomNum;
 
             Pen pen = new Pen(this.PenColor, 0.1f);
             pen.DashStyle = this.PenStyle;

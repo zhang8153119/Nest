@@ -16,7 +16,7 @@ namespace FZYK .Nest
             {
                   Application .EnableVisualStyles();
                   Application .SetCompatibleTextRenderingDefault(false);
-                  Application .Run(new FrmCut());
+                  Application .Run(new FrmNest());
             }
       }
 }
