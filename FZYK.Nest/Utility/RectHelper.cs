@@ -6,7 +6,7 @@ using System .Drawing;
 using System .Linq;
 using System .Runtime .InteropServices;
 
-namespace myCad .Utility
+namespace FZYK .Nest
 {
       public class RectHelper
       {
@@ -340,7 +340,7 @@ namespace myCad .Utility
                   int count = p .Count;
                   for (int i = 0; i < p .Count; i++)
                   {
-                        Shape .Line l = new Shape .Line(p[i], p[(i + 1) % count]);
+                        myCad .Shape .Line l = new myCad .Shape .Line(p[i], p[(i + 1) % count]);
                         bs .Add(l);
                   }
                   pm .OutModel .ExpandPoint = p;

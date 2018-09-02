@@ -1,12 +1,8 @@
-﻿using myCad .Shape;
-using System;
+﻿using FZYK .Nest;
+using myCad .Shape;
 using System .Collections .Generic;
 using System .Drawing;
-using System .Drawing .Drawing2D;
 using System .Linq;
-using System .Text;
-using System .Threading .Tasks;
-using myCad .Utility;
 
 namespace myCad .Model
 {

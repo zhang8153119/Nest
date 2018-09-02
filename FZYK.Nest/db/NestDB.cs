@@ -40,5 +40,12 @@ namespace FZYK .Nest .db
                   }
                   return dic;
             }
+
+            public DataTable GetStock(string lName, string mfSpec)
+            {
+                  string sql = " select lName,mfSpec,sLength,sWidth,sCount from W_Stock s inner join B_MaterialFile mf on mf.mfID = s.mfID"
+                        + " where lName = '" + lName + "' AND mfSpec = '" + mfSpec + "'";
+                  return YKDataClass .getDataTable(sql);
+            }
       }
 }

@@ -18,7 +18,7 @@ namespace myCad .DXFOper
 {
       class DxfInputB : FileBaseOper
       {
-            public List<PlateModel> mainmethod()
+            public List<PlateModel> mainmethod(CADInterface cadinterface1)
             {
                   List<PlateModel> listPlate = new List<PlateModel>();
                   List<string> listFileName = selectList("选择dxf文件", new string[] { "dxf" });
@@ -28,7 +28,7 @@ namespace myCad .DXFOper
                         //DateTime beforDT = System.DateTime.Now;
                         for (int i = 0; i < listFileName .Count; i++)
                         {
-                              listPlate .Add(analyticalPaper(listFileName[i]));
+                              listPlate .Add(analyticalPaper(listFileName[i], cadinterface1));
                         }
                         //DateTime afterDT = System.DateTime.Now;
                         //TimeSpan ts = afterDT.Subtract(beforDT);
@@ -41,11 +41,8 @@ namespace myCad .DXFOper
                   }
                   return listPlate;
             }
-            private PlateModel analyticalPaper(string url)
+            private PlateModel analyticalPaper(string url, CADInterface cadinterface)
             {
-
-                  //DateTime beforDT = System.DateTime.Now;
-
                   PlateModel plate = new PlateModel();
                   string[] urlStr = url .Split('\\');
                   string[] nameAndNum = urlStr[urlStr .Length - 1] .Split('-');
@@ -165,9 +162,9 @@ namespace myCad .DXFOper
                   //       plate.InnerModel[0].ListShape[i].ShapeClass, plate.InnerModel[0].ListShape[i].StartPoint, plate.InnerModel[0].ListShape[i].EndPoint);
                   //}
 
-                  //CADInterface.currentPlates.Add(plate.OutModel);          //这里不存在外围面域，下面的判断之后才选定外围面域
-                  //CADInterface .currentPlates .AddRange(plate .InnerModel);
-                  //CADInterface .DrawShap();
+                  cadinterface .currentPlates .Add(plate .OutModel);          //这里不存在外围面域，下面的判断之后才选定外围面域
+                  cadinterface .currentPlates .AddRange(plate .InnerModel);
+                  cadinterface .DrawShap();
                   plate = modelOper .reSetOutInner(plate);
                   plate = modelOper .juedeIsArc(plate);
                   plate = new CalculateArea() .getPlateArea(plate);
@@ -179,7 +176,8 @@ namespace myCad .DXFOper
                   //TimeSpan ts = afterDT.Subtract(beforDT);
                   //Console.WriteLine("件号：{0},时间：{1}",
                   //        plate.PlateName, ts.TotalSeconds);
-
+                  cadinterface .currentPlates .Clear();
+                  cadinterface .currentShapes .Clear();
                   return plate;
 
                   //DateTime afterDT = System.DateTime.Now;
