@@ -58,6 +58,7 @@ namespace FZYK .Nest
                   dgvPart .AutoGenerateColumns = false;
                   dgvStock .AutoGenerateColumns = false;
                   BindSet();
+                  InitChart();
                   cadInterfaceMain .Init();
             }
             /// <summary>
@@ -189,6 +190,10 @@ namespace FZYK .Nest
             private void tsbtnStart_Click(object sender, EventArgs e)
             {
                   _stop = false;
+                  _dataQueue .Clear();
+                  _dataQueueAvg .Clear();
+                  this .chartMain .Series[0] .Points .Clear();
+                  this .chartMain .Series[1] .Points .Clear();
                   Thread t = new Thread(DoWork);
                   t .Start();
             }
@@ -230,6 +235,7 @@ namespace FZYK .Nest
                   _dataQueue .Enqueue(value);
                   _dataQueueAvg .Enqueue(avgvalue);
                   this .chartMain .Series[0] .Points .Clear();
+                  this .chartMain .Series[1] .Points .Clear();
                   for (int i = 0; i < _dataQueue .Count; i++)
                   {
                         this .chartMain .Series[0] .Points .AddXY((i + 1), _dataQueue .ElementAt(i));
@@ -279,7 +285,7 @@ namespace FZYK .Nest
                   s = CreateStock();
                   if (s == null)
                         return;
-                  GA ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _size, _pcross, _pmutation);
+                  GA ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _popsize, _pcross, _pmutation);
                   pop = ga .Create();
                   int gen = 1;
                   while (!_stop)
@@ -289,7 +295,7 @@ namespace FZYK .Nest
                         ga .SortByFitness(ref pop);
                         DNA bestdna = pop[0] .Copy();
 
-                        for (int i = 0; i < _size; i += 2)
+                        for (int i = 0; i < _popsize; i += 2)
                         {
                               DNA dna1 = ga .SelectOne(pop);
                               DNA dna2 = ga .SelectOne(pop);
@@ -321,7 +327,7 @@ namespace FZYK .Nest
                                     newpop .Add(child2);
                               }
 
-                              ShowProgress?.Invoke((i + 2) .ToString(), _size .ToString());
+                              ShowProgress?.Invoke((i + 2) .ToString(), _popsize .ToString());
                         }
 
                         ga .SortByFitness(ref newpop);
@@ -448,29 +454,7 @@ namespace FZYK .Nest
                   this .chartMain .Series[1] .ChartType = SeriesChartType .Line;
                   this .chartMain .Series[1] .Points .Clear();
             }
-
-            /// <summary>
-            /// 刷新图
-            /// </summary>
-            private void RefreshChart()
-            {
-                  UpdateQueueValue();
-                  this .chartMain .Series[0] .Points .Clear();
-                  for (int i = 0; i < _dataQueue .Count; i++)
-                  {
-                        this .chartMain .Series[0] .Points .AddXY((i + 1), _dataQueue .ElementAt(i));
-                  }
-            }
-            //更新队列中的值
-            private void UpdateQueueValue()
-            {
-                  Random r = new Random();
-                  for (int i = 0; i < _num; i++)
-                  {
-                        _dataQueue .Enqueue(r .Next(0, 100));
-                  }
-
-            }
+            
             #endregion
             #region 查看结果 
             /// <summary>
@@ -480,7 +464,9 @@ namespace FZYK .Nest
             /// <param name="e"></param>
             private void btnSee_Click(object sender, EventArgs e)
             {
-                  DrawStockLine(_currentPop[0] .Stock[0]);
+                  GA ga = new GA(_part, _partCombine, new List<Stock>(), T, _popsize, _rotate, _type, _popsize, _pcross, _pmutation);
+                  DNA dna = ga .CountFitnessRectangle(_currentPop[0]);
+                  DrawStockLine(dna .Stock[0]);
             }
             /// <summary>
             /// 画排料图，线图

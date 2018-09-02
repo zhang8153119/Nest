@@ -178,6 +178,7 @@ namespace myCad .DXFOper
                   //        plate.PlateName, ts.TotalSeconds);
                   cadinterface .currentPlates .Clear();
                   cadinterface .currentShapes .Clear();
+                  cadinterface .DrawShap();
                   return plate;
 
                   //DateTime afterDT = System.DateTime.Now;

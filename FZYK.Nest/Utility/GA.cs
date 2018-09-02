@@ -458,7 +458,7 @@ namespace FZYK .Nest
             /// </summary>
             /// <param name="d"></param>
             /// <returns></returns>
-            private DNA CountFitnessRectangle(DNA d)
+            public DNA CountFitnessRectangle(DNA d)
             {
                   DNA dna = d .Copy();
                   float sumArea = 0f;
