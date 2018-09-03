@@ -25,6 +25,11 @@ namespace myCad .Model
                   Angle = angle;
                   Location = location;
             }
+            public PartInfo Copy()
+            {
+                  PartInfo p = new PartInfo(ID, Type, Angle, Location);
+                  return p;
+            }
       }
 
       public class Stock
@@ -64,8 +69,14 @@ namespace myCad .Model
                   s .Disable = Disable;
                   s .id = id;
                   s .Use = Use;
-                  s .PartInfoList = PartInfoList;
                   s .StockForm = StockForm .ToList();
+
+                  List<PartInfo> partlist = new List<PartInfo>();
+                  for (int i = 0; i < PartInfoList .Count; i++)
+                  {
+                        partlist .Add(PartInfoList[i] .Copy());
+                  }
+                  s .PartInfoList = partlist;
                   return s;
             }
             public float Height
@@ -159,6 +170,6 @@ namespace myCad .Model
                         stockId = value;
                   }
             }
-            
+
       }
 }

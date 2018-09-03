@@ -36,23 +36,25 @@
                   System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
                   System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
                   System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
                   System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
                   System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
                   System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
                   System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-                  System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
                   this.tabMain = new FZYK.WinCtrl.YKTabControl(this.components);
                   this.pageMain = new FZYK.WinCtrl.YKTabPage();
                   this.tsbtnStop = new FZYK.WinCtrl.YKButton(this.components);
                   this.tsbtnStart = new FZYK.WinCtrl.YKButton(this.components);
+                  this.btnSee = new FZYK.WinCtrl.YKButton(this.components);
                   this.btnGet = new FZYK.WinCtrl.YKButton(this.components);
                   this.lbllName_mfSpec = new FZYK.WinCtrl.YKLabel(this.components);
                   this.cmblName_mfSpec = new FZYK.WinCtrl.YKComboBox();
                   this.tsMain = new FZYK.WinCtrl.YKToolStrip(this.components);
                   this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripDropDownButton();
                   this.tsmiReadDxf = new System.Windows.Forms.ToolStripMenuItem();
+                  this.tsmiDelete = new System.Windows.Forms.ToolStripMenuItem();
                   this.tsbtnSet = new System.Windows.Forms.ToolStripButton();
                   this.pageSet = new FZYK.WinCtrl.YKTabPage();
                   this.scMain = new FZYK.WinCtrl.YKSplitContainer(this.components);
@@ -68,6 +70,12 @@
                   this.mfSpec = new System.Windows.Forms.DataGridViewTextBoxColumn();
                   this.ykLabel1 = new FZYK.WinCtrl.YKLabel(this.components);
                   this.dgvStock = new FZYK.WinCtrl.YKDataGridView(this.components);
+                  this.sLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
+                  this.sWidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
+                  this.sCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+                  this.lName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+                  this.mfspec2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+                  this.yuliao = new System.Windows.Forms.DataGridViewTextBoxColumn();
                   this.ykLabel2 = new FZYK.WinCtrl.YKLabel(this.components);
                   this.scMain2 = new FZYK.WinCtrl.YKSplitContainer(this.components);
                   this.pnlright = new FZYK.WinCtrl.YKPanel(this.components);
@@ -75,14 +83,9 @@
                   this.txtResult = new FZYK.WinCtrl.YKRichTextBox(this.components);
                   this.pbMain = new FZYK.WinCtrl.YKProgressBar(this.components);
                   this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
-                  this.btnSee = new FZYK.WinCtrl.YKButton(this.components);
-                  this.sLength = new System.Windows.Forms.DataGridViewTextBoxColumn();
-                  this.sWidth = new System.Windows.Forms.DataGridViewTextBoxColumn();
-                  this.sCount = new System.Windows.Forms.DataGridViewTextBoxColumn();
-                  this.lName2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-                  this.mfspec2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-                  this.yuliao = new System.Windows.Forms.DataGridViewTextBoxColumn();
+                  this.btntest = new FZYK.WinCtrl.YKButton(this.components);
                   this.cadInterfaceMain = new myCad.CADInterfaceCtrl.CADInterface();
+                  this.btnSee2 = new FZYK.WinCtrl.YKButton(this.components);
                   this.tabMain.SuspendLayout();
                   this.pageMain.SuspendLayout();
                   this.tsMain.SuspendLayout();
@@ -121,6 +124,8 @@
                   this.pageMain.BackColor = System.Drawing.Color.White;
                   this.pageMain.Controls.Add(this.tsbtnStop);
                   this.pageMain.Controls.Add(this.tsbtnStart);
+                  this.pageMain.Controls.Add(this.btntest);
+                  this.pageMain.Controls.Add(this.btnSee2);
                   this.pageMain.Controls.Add(this.btnSee);
                   this.pageMain.Controls.Add(this.btnGet);
                   this.pageMain.Controls.Add(this.lbllName_mfSpec);
@@ -177,6 +182,27 @@
                   this.tsbtnStart.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
                   this.tsbtnStart.UseVisualStyleBackColor = true;
                   this.tsbtnStart.Click += new System.EventHandler(this.tsbtnStart_Click);
+                  // 
+                  // btnSee
+                  // 
+                  this.btnSee.A_BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btnSee.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
+                  this.btnSee.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btnSee.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btnSee.DisplayFocusCues = false;
+                  this.btnSee.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btnSee.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btnSee.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btnSee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                  this.btnSee.ForeColor = System.Drawing.Color.Black;
+                  this.btnSee.Location = new System.Drawing.Point(403, 57);
+                  this.btnSee.Name = "btnSee";
+                  this.btnSee.Size = new System.Drawing.Size(57, 23);
+                  this.btnSee.TabIndex = 3;
+                  this.btnSee.Text = "查看";
+                  this.btnSee.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
+                  this.btnSee.UseVisualStyleBackColor = true;
+                  this.btnSee.Click += new System.EventHandler(this.btnSee_Click);
                   // 
                   // btnGet
                   // 
@@ -238,7 +264,8 @@
                   // toolStripSplitButton1
                   // 
                   this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsmiReadDxf});
+            this.tsmiReadDxf,
+            this.tsmiDelete});
                   this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
                   this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
                   this.toolStripSplitButton1.Name = "toolStripSplitButton1";
@@ -251,6 +278,13 @@
                   this.tsmiReadDxf.Size = new System.Drawing.Size(147, 22);
                   this.tsmiReadDxf.Text = "读取DXF文件";
                   this.tsmiReadDxf.Click += new System.EventHandler(this.tsmiReadDxf_Click);
+                  // 
+                  // tsmiDelete
+                  // 
+                  this.tsmiDelete.Name = "tsmiDelete";
+                  this.tsmiDelete.Size = new System.Drawing.Size(147, 22);
+                  this.tsmiDelete.Text = "清除";
+                  this.tsmiDelete.Click += new System.EventHandler(this.tsmiDelete_Click);
                   // 
                   // tsbtnSet
                   // 
@@ -530,6 +564,66 @@
                   this.dgvStock.Size = new System.Drawing.Size(196, 119);
                   this.dgvStock.TabIndex = 0;
                   // 
+                  // sLength
+                  // 
+                  this.sLength.DataPropertyName = "sLength";
+                  dataGridViewCellStyle5.Format = "#0.#;-#0.#;#";
+                  this.sLength.DefaultCellStyle = dataGridViewCellStyle5;
+                  this.sLength.HeaderText = "长度";
+                  this.sLength.Name = "sLength";
+                  this.sLength.ReadOnly = true;
+                  this.sLength.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+                  this.sLength.Width = 50;
+                  // 
+                  // sWidth
+                  // 
+                  this.sWidth.DataPropertyName = "sWidth";
+                  dataGridViewCellStyle6.Format = "#0.#;-#0.#;#";
+                  this.sWidth.DefaultCellStyle = dataGridViewCellStyle6;
+                  this.sWidth.HeaderText = "宽度";
+                  this.sWidth.Name = "sWidth";
+                  this.sWidth.ReadOnly = true;
+                  this.sWidth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+                  this.sWidth.Width = 50;
+                  // 
+                  // sCount
+                  // 
+                  this.sCount.DataPropertyName = "sCount";
+                  dataGridViewCellStyle7.Format = "#0.#;-#0.#;#";
+                  this.sCount.DefaultCellStyle = dataGridViewCellStyle7;
+                  this.sCount.HeaderText = "数量";
+                  this.sCount.Name = "sCount";
+                  this.sCount.ReadOnly = true;
+                  this.sCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+                  this.sCount.Width = 45;
+                  // 
+                  // lName2
+                  // 
+                  this.lName2.DataPropertyName = "lName";
+                  this.lName2.HeaderText = "材质";
+                  this.lName2.Name = "lName2";
+                  this.lName2.ReadOnly = true;
+                  this.lName2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+                  this.lName2.Width = 50;
+                  // 
+                  // mfspec2
+                  // 
+                  this.mfspec2.DataPropertyName = "mfspec";
+                  this.mfspec2.HeaderText = "规格";
+                  this.mfspec2.Name = "mfspec2";
+                  this.mfspec2.ReadOnly = true;
+                  this.mfspec2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+                  this.mfspec2.Width = 50;
+                  // 
+                  // yuliao
+                  // 
+                  this.yuliao.DataPropertyName = "yuliao";
+                  this.yuliao.HeaderText = "余料";
+                  this.yuliao.Name = "yuliao";
+                  this.yuliao.ReadOnly = true;
+                  this.yuliao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+                  this.yuliao.Width = 40;
+                  // 
                   // ykLabel2
                   // 
                   this.ykLabel2.AutoSize = true;
@@ -629,86 +723,26 @@
                   this.chartMain.TabIndex = 1;
                   this.chartMain.Text = "chart1";
                   // 
-                  // btnSee
+                  // btntest
                   // 
-                  this.btnSee.A_BorderColor = System.Drawing.SystemColors.Desktop;
-                  this.btnSee.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
-                  this.btnSee.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
-                  this.btnSee.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-                  this.btnSee.DisplayFocusCues = false;
-                  this.btnSee.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-                  this.btnSee.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-                  this.btnSee.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-                  this.btnSee.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                  this.btnSee.ForeColor = System.Drawing.Color.Black;
-                  this.btnSee.Location = new System.Drawing.Point(403, 57);
-                  this.btnSee.Name = "btnSee";
-                  this.btnSee.Size = new System.Drawing.Size(57, 23);
-                  this.btnSee.TabIndex = 3;
-                  this.btnSee.Text = "查看";
-                  this.btnSee.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
-                  this.btnSee.UseVisualStyleBackColor = true;
-                  this.btnSee.Click += new System.EventHandler(this.btnSee_Click);
-                  // 
-                  // sLength
-                  // 
-                  this.sLength.DataPropertyName = "sLength";
-                  dataGridViewCellStyle5.Format = "#0.#;-#0.#;#";
-                  this.sLength.DefaultCellStyle = dataGridViewCellStyle5;
-                  this.sLength.HeaderText = "长度";
-                  this.sLength.Name = "sLength";
-                  this.sLength.ReadOnly = true;
-                  this.sLength.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-                  this.sLength.Width = 50;
-                  // 
-                  // sWidth
-                  // 
-                  this.sWidth.DataPropertyName = "sWidth";
-                  dataGridViewCellStyle6.Format = "#0.#;-#0.#;#";
-                  this.sWidth.DefaultCellStyle = dataGridViewCellStyle6;
-                  this.sWidth.HeaderText = "宽度";
-                  this.sWidth.Name = "sWidth";
-                  this.sWidth.ReadOnly = true;
-                  this.sWidth.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-                  this.sWidth.Width = 50;
-                  // 
-                  // sCount
-                  // 
-                  this.sCount.DataPropertyName = "sCount";
-                  dataGridViewCellStyle7.Format = "#0.#;-#0.#;#";
-                  this.sCount.DefaultCellStyle = dataGridViewCellStyle7;
-                  this.sCount.HeaderText = "数量";
-                  this.sCount.Name = "sCount";
-                  this.sCount.ReadOnly = true;
-                  this.sCount.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-                  this.sCount.Width = 45;
-                  // 
-                  // lName2
-                  // 
-                  this.lName2.DataPropertyName = "lName";
-                  this.lName2.HeaderText = "材质";
-                  this.lName2.Name = "lName2";
-                  this.lName2.ReadOnly = true;
-                  this.lName2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-                  this.lName2.Width = 50;
-                  // 
-                  // mfspec2
-                  // 
-                  this.mfspec2.DataPropertyName = "mfspec";
-                  this.mfspec2.HeaderText = "规格";
-                  this.mfspec2.Name = "mfspec2";
-                  this.mfspec2.ReadOnly = true;
-                  this.mfspec2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-                  this.mfspec2.Width = 50;
-                  // 
-                  // yuliao
-                  // 
-                  this.yuliao.DataPropertyName = "yuliao";
-                  this.yuliao.HeaderText = "余料";
-                  this.yuliao.Name = "yuliao";
-                  this.yuliao.ReadOnly = true;
-                  this.yuliao.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-                  this.yuliao.Width = 40;
+                  this.btntest.A_BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btntest.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
+                  this.btntest.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btntest.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btntest.DisplayFocusCues = false;
+                  this.btntest.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btntest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btntest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btntest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                  this.btntest.ForeColor = System.Drawing.Color.Black;
+                  this.btntest.Location = new System.Drawing.Point(466, 29);
+                  this.btntest.Name = "btntest";
+                  this.btntest.Size = new System.Drawing.Size(57, 23);
+                  this.btntest.TabIndex = 3;
+                  this.btntest.Text = "测试";
+                  this.btntest.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
+                  this.btntest.UseVisualStyleBackColor = true;
+                  this.btntest.Click += new System.EventHandler(this.btntest_Click);
                   // 
                   // cadInterfaceMain
                   // 
@@ -728,6 +762,27 @@
                   this.cadInterfaceMain.selectRect = null;
                   this.cadInterfaceMain.Size = new System.Drawing.Size(795, 283);
                   this.cadInterfaceMain.TabIndex = 3;
+                  // 
+                  // btnSee2
+                  // 
+                  this.btnSee2.A_BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btnSee2.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
+                  this.btnSee2.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btnSee2.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btnSee2.DisplayFocusCues = false;
+                  this.btnSee2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btnSee2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btnSee2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btnSee2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                  this.btnSee2.ForeColor = System.Drawing.Color.Black;
+                  this.btnSee2.Location = new System.Drawing.Point(403, 29);
+                  this.btnSee2.Name = "btnSee2";
+                  this.btnSee2.Size = new System.Drawing.Size(57, 23);
+                  this.btnSee2.TabIndex = 3;
+                  this.btnSee2.Text = "查看2";
+                  this.btnSee2.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
+                  this.btnSee2.UseVisualStyleBackColor = true;
+                  this.btnSee2.Click += new System.EventHandler(this.btnSee2_Click);
                   // 
                   // FrmNest
                   // 
@@ -812,5 +867,8 @@
             private System .Windows .Forms .DataGridViewTextBoxColumn lName2;
             private System .Windows .Forms .DataGridViewTextBoxColumn mfspec2;
             private System .Windows .Forms .DataGridViewTextBoxColumn yuliao;
+            private System .Windows .Forms .ToolStripMenuItem tsmiDelete;
+            private WinCtrl .YKButton btntest;
+            private WinCtrl .YKButton btnSee2;
       }
 }

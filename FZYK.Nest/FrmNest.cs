@@ -38,11 +38,11 @@ namespace FZYK .Nest
             GridHelper gh = new GridHelper();
             RectHelper rh = new RectHelper();
             NestDB _db = new NestDB();
+            GA _ga = new GA();
 
             DataTable _dtPart = new DataTable();
             private Queue<double> _dataQueue = new Queue<double>(100);
             private Queue<double> _dataQueueAvg = new Queue<double>(100);
-            private int _num = 1;//每次删除增加几个点
             bool _stop = false;
 
             List<DNA> _currentPop = new List<DNA>();
@@ -131,7 +131,18 @@ namespace FZYK .Nest
                   dgvPart .DataSource = _dtPart;
                   BindlNamemfSpec();
             }
-
+            /// <summary>
+            /// 清除
+            /// </summary>
+            /// <param name="sender"></param>
+            /// <param name="e"></param>
+            private void tsmiDelete_Click(object sender, EventArgs e)
+            {
+                  _dtPart .Clear();
+                  cadInterfaceMain .currentShapes .Clear();
+                  cadInterfaceMain .currentPlates .Clear();
+                  cadInterfaceMain .DrawShap();
+            }
             /// <summary>
             /// 设置
             /// </summary>
@@ -285,29 +296,29 @@ namespace FZYK .Nest
                   s = CreateStock();
                   if (s == null)
                         return;
-                  GA ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _popsize, _pcross, _pmutation);
-                  pop = ga .Create();
+                  _ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _popsize, _pcross, _pmutation);
+                  pop = _ga .Create();
                   int gen = 1;
                   while (!_stop)
                   {
                         List<DNA> newpop = new List<DNA>();
                         //精英保留
-                        ga .SortByFitness(ref pop);
+                        _ga .SortByFitness(ref pop);
                         DNA bestdna = pop[0] .Copy();
 
                         for (int i = 0; i < _popsize; i += 2)
                         {
-                              DNA dna1 = ga .SelectOne(pop);
-                              DNA dna2 = ga .SelectOne(pop);
+                              DNA dna1 = _ga .SelectOne(pop);
+                              DNA dna2 = _ga .SelectOne(pop);
 
                               DNA child1 = new DNA();
                               DNA child2 = new DNA();
 
-                              Tuple<DNA, DNA> tp = ga .Crossover(dna1, dna2);
+                              Tuple<DNA, DNA> tp = _ga .Crossover(dna1, dna2);
                               child1 = tp .Item1;
                               child2 = tp .Item2;
 
-                              DNA dnamutation1 = ga .Mutation(child1);
+                              DNA dnamutation1 = _ga .Mutation(child1);
                               if (dnamutation1 != null)
                               {
                                     newpop .Add(dnamutation1);
@@ -317,7 +328,7 @@ namespace FZYK .Nest
                                     newpop .Add(child1);
                               }
 
-                              DNA dnamutation2 = ga .Mutation(child2);
+                              DNA dnamutation2 = _ga .Mutation(child2);
                               if (dnamutation2 != null)
                               {
                                     newpop .Add(dnamutation2);
@@ -330,7 +341,7 @@ namespace FZYK .Nest
                               ShowProgress?.Invoke((i + 2) .ToString(), _popsize .ToString());
                         }
 
-                        ga .SortByFitness(ref newpop);
+                        _ga .SortByFitness(ref newpop);
                         newpop .RemoveAt(newpop .Count - 1);
                         newpop .Insert(0, bestdna);
                         pop = newpop;
@@ -454,7 +465,7 @@ namespace FZYK .Nest
                   this .chartMain .Series[1] .ChartType = SeriesChartType .Line;
                   this .chartMain .Series[1] .Points .Clear();
             }
-            
+
             #endregion
             #region 查看结果 
             /// <summary>
@@ -464,8 +475,16 @@ namespace FZYK .Nest
             /// <param name="e"></param>
             private void btnSee_Click(object sender, EventArgs e)
             {
-                  GA ga = new GA(_part, _partCombine, new List<Stock>(), T, _popsize, _rotate, _type, _popsize, _pcross, _pmutation);
-                  DNA dna = ga .CountFitnessRectangle(_currentPop[0]);
+                  _ga .SortByFitness(ref _currentPop);
+                  /*DNA dna = _ga .CountFitnessRectangle(_currentPop[0]);
+                  Stock best = dna .Stock[0];*/
+                  DrawStockLine(_currentPop[0].Stock[0]);
+            }
+
+            private void btnSee2_Click(object sender, EventArgs e)
+            {
+                  _ga .SortByFitness(ref _currentPop);
+                  DNA dna = _ga .CountFitnessRectangle(_currentPop[0]);
                   DrawStockLine(dna .Stock[0]);
             }
             /// <summary>
@@ -487,32 +506,29 @@ namespace FZYK .Nest
                         string type = part[i] .Type;
                         float angle = part[i] .Angle;
                         PointF p = new PointF(part[i] .Location .Y * T, part[i] .Location .X * T);
-                        //PointF p = new PointF(part[i] .Location .X * T, part[i] .Location .Y * T);
-                        CopyOper co = new CopyOper();
                         if (type == "1")
                         {
-                              PlateModel pm = _part .Where(t => t .id == id) .ToList()[0];
+                              PlateModel pm = _ga ._part .Where(t => t .id == id) .ToList()[0];
                               pm = ph .RotateAndMove(pm, angle);
                               pm = ph .Move(pm, p .X, p .Y);
                               new RotateOper() .RotateCSYS(pm, s .Height);//旋转坐标系
                               cadInterfaceMain .currentShapes .AddRange(pm .OutModel .ListShape);
-                              cadInterfaceMain .currentShapes .Add(new Text(pm .PlateName .ToString(), pm .PowCenter, 0, 20));
+                              cadInterfaceMain .currentShapes .Add(new Text(pm .PlateName .ToString(), pm .PowCenter, 0, 30));
                               for (int j = 0; j < pm .InnerModel .Count; i++)
                               {
                                     cadInterfaceMain .currentShapes .AddRange(pm .InnerModel[i] .ListShape);
                               }
 
                               string key = id .ToString() + "/" + angle .ToString();
-                              /*var tp = _basicLib[key];
-                              if (chkDrawRect .Checked)
-                                    AddRectLine(ref bs, p, tp .GridArray .GetLength(0) * T, tp .GridArray .GetLength(1) * T);
-                              if (chkGrid .Checked)
+                              //var tp = _ga ._basicLib[key];
+                              //AddRectLine(ref bs, p, tp .GridArray .GetLength(0) * T, tp .GridArray .GetLength(1) * T);
+                              /*if (chkGrid .Checked)
                                     AddGridLine(ref bs, tp .GridArray, p, T);*/
 
                         }
                         else
                         {
-                              PlateCombine pc = _partCombine .Where(t => t .id == id) .ToList()[0];
+                              PlateCombine pc = _ga ._partCombine .Where(t => t .id == id) .ToList()[0];
                               pc = ph .RotateAndMove(pc, angle);
                               PlateModel pm1 = ph .Move(pc .Plate1, p .X, p .Y);
                               PlateModel pm2 = ph .Move(pc .Plate2, p .X, p .Y);
@@ -520,24 +536,23 @@ namespace FZYK .Nest
                               new RotateOper() .RotateCSYS(pm1, s .Height);
                               new RotateOper() .RotateCSYS(pm2, s .Height);
                               cadInterfaceMain .currentShapes .AddRange(pm1 .OutModel .ListShape);
-                              cadInterfaceMain .currentShapes .Add(new Text(pm1 .PlateName .ToString(), pm1 .PowCenter, 0, 20));
+                              cadInterfaceMain .currentShapes .Add(new Text(pm1 .PlateName .ToString(), pm1 .PowCenter, 0, 30));
                               for (int j = 0; j < pm1 .InnerModel .Count; i++)
                               {
                                     cadInterfaceMain .currentShapes .AddRange(pm1 .InnerModel[i] .ListShape);
                               }
 
                               cadInterfaceMain .currentShapes .AddRange(pm2 .OutModel .ListShape);
-                              cadInterfaceMain .currentShapes .Add(new Text(pm2 .PlateName .ToString(), pm2 .PowCenter, 0, 20));
+                              cadInterfaceMain .currentShapes .Add(new Text(pm2 .PlateName .ToString(), pm2 .PowCenter, 0, 30));
                               for (int j = 0; j < pm2 .InnerModel .Count; i++)
                               {
                                     cadInterfaceMain .currentShapes .AddRange(pm2 .InnerModel[i] .ListShape);
                               }
 
                               string key = "C" + id .ToString() + "/" + angle .ToString();
-                              /*var tp = _basicLib[key];
-                              if (chkDrawRect .Checked)
-                                    AddRectLineCombine(ref bs, p, tp .GridArray .GetLength(0) * T, tp .GridArray .GetLength(1) * T);
-                              if (chkGrid .Checked)
+                              //var tp = _ga ._basicLib[key];
+                              //AddRectLineCombine(ref bs, p, tp .GridArray .GetLength(0) * T, tp .GridArray .GetLength(1) * T);
+                              /*if (chkGrid .Checked)
                                     AddGridLineCombine(ref bs, tp .GridArray, p, T);*/
                         }
                   }
@@ -614,6 +629,21 @@ namespace FZYK .Nest
                   bs .Add(Line2);
                   bs .Add(Line3);
                   bs .Add(Line4);
+            }
+            #endregion
+            #region 测试
+            private void btntest_Click(object sender, EventArgs e)
+            {
+                  List<Stock> s = new List<Stock>();
+                  List<DNA> pop = new List<DNA>();
+                  s = CreateStock();
+                  if (s == null)
+                        return;
+                  _ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _popsize, _pcross, _pmutation);
+                  pop = _ga .Create();
+                  _currentPop = pop;
+                  DrawStockLine(_currentPop[0] .Stock[0]);
+
             }
             #endregion
 

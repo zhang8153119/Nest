@@ -27,6 +27,10 @@ namespace FZYK .Nest
             CopyOper co = new CopyOper();
             PlateHelper ph = new PlateHelper();
             GridHelper gh = new GridHelper();
+            public GA()
+            {
+
+            }
             public GA(List<PlateModel> part, List<PlateCombine> partCombine, List<Stock> stock
                   , float t, int size, bool rotate, string type, float small, decimal pcrossover, decimal pmutation)
             {
@@ -144,7 +148,7 @@ namespace FZYK .Nest
                         if (pclist .Count > 0)
                         {
                               PlateCombine pc = pclist[0];
-                              gl2 = gh .GetGridValueCombine(ph .RotateAndMove(pc, Convert .ToSingle(angle)), T);
+                              gl2 = gh .GetGridValueCombine(ph .RotateAndMove(pc, Convert .ToSingle(anglecombine)), T);
                               _basicLib .Add(key2, gl2);
                         }
                   }
