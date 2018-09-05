@@ -47,6 +47,8 @@
                   this.pageMain = new FZYK.WinCtrl.YKTabPage();
                   this.tsbtnStop = new FZYK.WinCtrl.YKButton(this.components);
                   this.tsbtnStart = new FZYK.WinCtrl.YKButton(this.components);
+                  this.btntest = new FZYK.WinCtrl.YKButton(this.components);
+                  this.btnSee2 = new FZYK.WinCtrl.YKButton(this.components);
                   this.btnSee = new FZYK.WinCtrl.YKButton(this.components);
                   this.btnGet = new FZYK.WinCtrl.YKButton(this.components);
                   this.lbllName_mfSpec = new FZYK.WinCtrl.YKLabel(this.components);
@@ -83,9 +85,8 @@
                   this.txtResult = new FZYK.WinCtrl.YKRichTextBox(this.components);
                   this.pbMain = new FZYK.WinCtrl.YKProgressBar(this.components);
                   this.chartMain = new System.Windows.Forms.DataVisualization.Charting.Chart();
-                  this.btntest = new FZYK.WinCtrl.YKButton(this.components);
                   this.cadInterfaceMain = new myCad.CADInterfaceCtrl.CADInterface();
-                  this.btnSee2 = new FZYK.WinCtrl.YKButton(this.components);
+                  this.chkDrawRect = new FZYK.WinCtrl.YKCheckBox(this.components);
                   this.tabMain.SuspendLayout();
                   this.pageMain.SuspendLayout();
                   this.tsMain.SuspendLayout();
@@ -122,6 +123,7 @@
                   // pageMain
                   // 
                   this.pageMain.BackColor = System.Drawing.Color.White;
+                  this.pageMain.Controls.Add(this.chkDrawRect);
                   this.pageMain.Controls.Add(this.tsbtnStop);
                   this.pageMain.Controls.Add(this.tsbtnStart);
                   this.pageMain.Controls.Add(this.btntest);
@@ -182,6 +184,48 @@
                   this.tsbtnStart.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
                   this.tsbtnStart.UseVisualStyleBackColor = true;
                   this.tsbtnStart.Click += new System.EventHandler(this.tsbtnStart_Click);
+                  // 
+                  // btntest
+                  // 
+                  this.btntest.A_BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btntest.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
+                  this.btntest.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btntest.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btntest.DisplayFocusCues = false;
+                  this.btntest.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btntest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btntest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btntest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                  this.btntest.ForeColor = System.Drawing.Color.Black;
+                  this.btntest.Location = new System.Drawing.Point(466, 29);
+                  this.btntest.Name = "btntest";
+                  this.btntest.Size = new System.Drawing.Size(57, 23);
+                  this.btntest.TabIndex = 3;
+                  this.btntest.Text = "测试";
+                  this.btntest.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
+                  this.btntest.UseVisualStyleBackColor = true;
+                  this.btntest.Click += new System.EventHandler(this.btntest_Click);
+                  // 
+                  // btnSee2
+                  // 
+                  this.btnSee2.A_BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btnSee2.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
+                  this.btnSee2.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btnSee2.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btnSee2.DisplayFocusCues = false;
+                  this.btnSee2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btnSee2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btnSee2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btnSee2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                  this.btnSee2.ForeColor = System.Drawing.Color.Black;
+                  this.btnSee2.Location = new System.Drawing.Point(403, 29);
+                  this.btnSee2.Name = "btnSee2";
+                  this.btnSee2.Size = new System.Drawing.Size(57, 23);
+                  this.btnSee2.TabIndex = 3;
+                  this.btnSee2.Text = "查看2";
+                  this.btnSee2.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
+                  this.btnSee2.UseVisualStyleBackColor = true;
+                  this.btnSee2.Click += new System.EventHandler(this.btnSee2_Click);
                   // 
                   // btnSee
                   // 
@@ -723,27 +767,6 @@
                   this.chartMain.TabIndex = 1;
                   this.chartMain.Text = "chart1";
                   // 
-                  // btntest
-                  // 
-                  this.btntest.A_BorderColor = System.Drawing.SystemColors.Desktop;
-                  this.btntest.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
-                  this.btntest.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
-                  this.btntest.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-                  this.btntest.DisplayFocusCues = false;
-                  this.btntest.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-                  this.btntest.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-                  this.btntest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-                  this.btntest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                  this.btntest.ForeColor = System.Drawing.Color.Black;
-                  this.btntest.Location = new System.Drawing.Point(466, 29);
-                  this.btntest.Name = "btntest";
-                  this.btntest.Size = new System.Drawing.Size(57, 23);
-                  this.btntest.TabIndex = 3;
-                  this.btntest.Text = "测试";
-                  this.btntest.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
-                  this.btntest.UseVisualStyleBackColor = true;
-                  this.btntest.Click += new System.EventHandler(this.btntest_Click);
-                  // 
                   // cadInterfaceMain
                   // 
                   this.cadInterfaceMain.BackColor = System.Drawing.Color.Black;
@@ -763,26 +786,18 @@
                   this.cadInterfaceMain.Size = new System.Drawing.Size(795, 283);
                   this.cadInterfaceMain.TabIndex = 3;
                   // 
-                  // btnSee2
+                  // chkDrawRect
                   // 
-                  this.btnSee2.A_BorderColor = System.Drawing.SystemColors.Desktop;
-                  this.btnSee2.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
-                  this.btnSee2.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
-                  this.btnSee2.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-                  this.btnSee2.DisplayFocusCues = false;
-                  this.btnSee2.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-                  this.btnSee2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-                  this.btnSee2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-                  this.btnSee2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                  this.btnSee2.ForeColor = System.Drawing.Color.Black;
-                  this.btnSee2.Location = new System.Drawing.Point(403, 29);
-                  this.btnSee2.Name = "btnSee2";
-                  this.btnSee2.Size = new System.Drawing.Size(57, 23);
-                  this.btnSee2.TabIndex = 3;
-                  this.btnSee2.Text = "查看2";
-                  this.btnSee2.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Normal;
-                  this.btnSee2.UseVisualStyleBackColor = true;
-                  this.btnSee2.Click += new System.EventHandler(this.btnSee2_Click);
+                  this.chkDrawRect.AutoSize = true;
+                  this.chkDrawRect.BackColor = System.Drawing.Color.Transparent;
+                  this.chkDrawRect.Checked = true;
+                  this.chkDrawRect.CheckState = System.Windows.Forms.CheckState.Checked;
+                  this.chkDrawRect.Location = new System.Drawing.Point(529, 33);
+                  this.chkDrawRect.Name = "chkDrawRect";
+                  this.chkDrawRect.Size = new System.Drawing.Size(60, 16);
+                  this.chkDrawRect.TabIndex = 6;
+                  this.chkDrawRect.Text = "定位框";
+                  this.chkDrawRect.UseVisualStyleBackColor = false;
                   // 
                   // FrmNest
                   // 
@@ -870,5 +885,6 @@
             private System .Windows .Forms .ToolStripMenuItem tsmiDelete;
             private WinCtrl .YKButton btntest;
             private WinCtrl .YKButton btnSee2;
+            private WinCtrl .YKCheckBox chkDrawRect;
       }
 }

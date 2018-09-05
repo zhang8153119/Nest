@@ -203,7 +203,7 @@ namespace FZYK .Nest
                         if (pclist .Count > 0)
                         {
                               PlateCombine pc = pclist[0];
-                              gl2 = gh .GetGridValueCombine(ph .RotateAndMove(pc, Convert .ToSingle(angle)), T);
+                              gl2 = gh .GetGridValueCombine(ph .RotateAndMove(pc, Convert .ToSingle(anglecombine)), T);
                               _basicLib .Add(key2, gl2);
                         }
                   }

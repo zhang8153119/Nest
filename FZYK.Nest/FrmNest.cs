@@ -23,7 +23,7 @@ namespace FZYK .Nest
             }
             #region 全局变量
             float T = 10f;//栅格精度
-            float _size = 0;//小件长宽
+            float _smallsize = 0;//小件长宽
             float _protect = 0;//保护量
             bool _rotate = true;//非组合零件交替旋转排入
             string _type = "";//组合模型
@@ -69,7 +69,7 @@ namespace FZYK .Nest
                   Dictionary<string, string> dic = new Dictionary<string, string>();
                   dic = _db .GetSet();
                   T = Convert .ToSingle(dic["T"]);
-                  _size = Convert .ToSingle(dic["Size"]);
+                  _smallsize = Convert .ToSingle(dic["Size"]);
                   _protect = Convert .ToSingle(dic["Protect"]);
                   _rotate = dic["Rotate"] .ToString() .Equals("是");
                   _popsize = Convert .ToInt32(dic["Pop"]);
@@ -296,7 +296,7 @@ namespace FZYK .Nest
                   s = CreateStock();
                   if (s == null)
                         return;
-                  _ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _popsize, _pcross, _pmutation);
+                  _ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _smallsize, _pcross, _pmutation);
                   pop = _ga .Create();
                   int gen = 1;
                   while (!_stop)
@@ -478,7 +478,7 @@ namespace FZYK .Nest
                   _ga .SortByFitness(ref _currentPop);
                   /*DNA dna = _ga .CountFitnessRectangle(_currentPop[0]);
                   Stock best = dna .Stock[0];*/
-                  DrawStockLine(_currentPop[0].Stock[0]);
+                  DrawStockLine(_currentPop[0] .Stock[0]);
             }
 
             private void btnSee2_Click(object sender, EventArgs e)
@@ -520,8 +520,9 @@ namespace FZYK .Nest
                               }
 
                               string key = id .ToString() + "/" + angle .ToString();
-                              //var tp = _ga ._basicLib[key];
-                              //AddRectLine(ref bs, p, tp .GridArray .GetLength(0) * T, tp .GridArray .GetLength(1) * T);
+                              var tp = _ga ._basicLib[key];
+                              if (chkDrawRect .Checked)
+                                    AddRectLine(ref bs, p, tp .GridArray .GetLength(0) * T, tp .GridArray .GetLength(1) * T);
                               /*if (chkGrid .Checked)
                                     AddGridLine(ref bs, tp .GridArray, p, T);*/
 
@@ -550,8 +551,9 @@ namespace FZYK .Nest
                               }
 
                               string key = "C" + id .ToString() + "/" + angle .ToString();
-                              //var tp = _ga ._basicLib[key];
-                              //AddRectLineCombine(ref bs, p, tp .GridArray .GetLength(0) * T, tp .GridArray .GetLength(1) * T);
+                              var tp = _ga ._basicLib[key];
+                              if (chkDrawRect .Checked)
+                                    AddRectLineCombine(ref bs, p, tp .GridArray .GetLength(0) * T, tp .GridArray .GetLength(1) * T);
                               /*if (chkGrid .Checked)
                                     AddGridLineCombine(ref bs, tp .GridArray, p, T);*/
                         }
@@ -639,7 +641,7 @@ namespace FZYK .Nest
                   s = CreateStock();
                   if (s == null)
                         return;
-                  _ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _popsize, _pcross, _pmutation);
+                  _ga = new GA(_part, _partCombine, s, T, _popsize, _rotate, _type, _smallsize, _pcross, _pmutation);
                   pop = _ga .Create();
                   _currentPop = pop;
                   DrawStockLine(_currentPop[0] .Stock[0]);
