@@ -67,7 +67,9 @@ namespace FZYK .Nest
                               int angle = r .Next(0, 4) * 90;
                               int angleCombine = r .Next(0, 2) * 90;
                               CreateLib(id, angle, angleCombine);
-                              basiclist .Add(new Basic(id, angle, angleCombine, _part[s] .Area, _part[s] .PlateCount));
+                              int combinetype = r .Next(0, _part[s] .Kind2);
+
+                              basiclist .Add(new Basic(id, angle, angleCombine, _part[s] .Area, _part[s] .PlateCount, combinetype));
                         }
                         List<Stock> dnastock = new List<Stock>();
                         int[] sortstock = new int[c];
@@ -81,7 +83,7 @@ namespace FZYK .Nest
                         dnathis = CountFitnessRectangle(dnathis);
                         pop .Add(dnathis);
                   }
-                  //Parallel .ForEach(_pop, item => item = CountFitnessRectangle(item));//, new ParallelOptions { MaxDegreeOfParallelism = 5 }
+                  //Parallel .ForEach(pop, item => item = CountFitnessRectangle(item));//, new ParallelOptions { MaxDegreeOfParallelism = 5 }
                   return pop;
             }
             /// <summary>

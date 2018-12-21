@@ -40,12 +40,35 @@ namespace FZYK .Nest .db
                   }
                   return dic;
             }
-
-            public DataTable GetStock(string lName, string mfSpec)
+            /// <summary>
+            /// 获取库存
+            /// </summary>
+            /// <param name="lName"></param>
+            /// <param name="mfSpec"></param>
+            /// <returns></returns>
+            public DataTable GetStock(string etname, string lName, string mfSpec)
             {
-                  string sql = " select lName,mfSpec,sLength,sWidth,sCount from W_Stock s inner join B_MaterialFile mf on mf.mfID = s.mfID"
-                        + " where lName = '" + lName + "' AND mfSpec = '" + mfSpec + "'";
+                  string sql = " select lName,mfSpec,sLength,sWidth,sum(sCount) as sCount "
+                        + " from W_Stock s inner join B_MaterialFile mf on mf.mfID = s.mfID"
+                        + " where tag = '原材料' and etname = '" + etname + "' and lName = '" + lName + "' AND mfSpec = '" + mfSpec + "'"
+                        + " group by lName,mfSpec,sLength,sWidth";
                   return YKDataClass .getDataTable(sql);
+            }
+            /// <summary>
+            /// 获取材质规格列表
+            /// </summary>
+            /// <returns></returns>
+            public DataSet GetStockList()
+            {
+                  string sql = "";
+                  sql += " SELECT s.etName,s.lName,mf.mfSpec INTO #s FROM dbo.W_Stock s INNER JOIN dbo.B_MaterialFile mf ON s.mfID = mf.mfID "
+                        + " WHERE mf.mfName = '钢板' GROUP BY mf.mfSpec,s.etName,s.lName "
+                        + " ORDER BY s.etName,s.lName,mf.mfSpec "
+                        + " SELECT etName FROM #s GROUP BY etName ORDER BY etName "
+                        + " SELECT lName FROM #s GROUP BY lName ORDER BY CASE WHEN lName LIKE 'Q%' THEN 0 ELSE 1 END,lName "
+                        + " SELECT mfSpec FROM #s GROUP BY mfSpec ORDER BY dbo.fSortNumber(mfSpec) "
+                        + " DROP TABLE #s ";
+                  return YKDataClass .Query(sql);
             }
       }
 }

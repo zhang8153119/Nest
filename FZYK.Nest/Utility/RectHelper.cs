@@ -10,13 +10,30 @@ namespace FZYK .Nest
 {
       public class RectHelper
       {
+            float _RE = 0.0001f;
+            float _angle = 0f;
+            float _angle2 = 0f;
+            float _area = -1f;
+            float _length = 0f;
+            float _height = 0f;
+            float _length2 = 0f;
+            float _height2 = 0f;
             #region 卡壳算法计算最小包络矩形
             public Dictionary<string, object> MinRect(List<PointF> p)
             {
+                  _angle = 0f;
+                  _area = -1f;
                   List<PointF> pConvexhull = GetConvexHull(p .ToList());
                   //计算最小矩形
+                  Rotating(pConvexhull);
                   Dictionary<string, object> dic = new Dictionary<string, object>();
-                  dic = Rotating(pConvexhull);
+                  dic .Add("angle", _angle);
+                  dic .Add("angle2", _angle2);
+                  dic .Add("area", _area);
+                  dic .Add("length", _length);
+                  dic .Add("height", _height);
+                  dic .Add("length2", _length2);
+                  dic .Add("height2", _height2);
                   dic .Add("convexhull", pConvexhull);
                   return dic;
             }
@@ -25,13 +42,8 @@ namespace FZYK .Nest
             /// </summary>
             /// <param name="ch"></param>
             /// <returns></returns>
-            public Dictionary<string, object> Rotating(List<PointF> ch)
+            public void Rotating(List<PointF> ch)
             {
-                  float height = 0f;
-                  float length = 0f;
-                  float area = -1f;
-                  float angle = 0f;
-                  float angle2 = 0f;
                   int m;
                   m = ch .Count;
                   int i = 1, j = 1, k = 1;
@@ -47,12 +59,13 @@ namespace FZYK .Nest
                               j = t;
                   float h = Dis(ch[k], ch[0], ch[1]);
                   float l = Len(Sub(ch[0], ch[1])) + Math .Abs(Dot(Sub(ch[1], ch[0]), Sub(ch[i], ch[1]))) / Len(Sub(ch[0], ch[1])) + Math .Abs(Dot(Sub(ch[0], ch[1]), Sub(ch[j], ch[0]))) / Len(Sub(ch[0], ch[1]));
-                  if (Max(area, h * l))
+                  if (Max(_area, h * l))
                   {
-                        height = h;
-                        length = l;
-                        area = h * l;
-                        angle = Angle(ch[0], ch[1]);
+                        _height = h;
+                        _length = l;
+                        _area = h * l;
+                        _angle = Angle(ch[0], ch[1]);
+                        _angle2 = (_angle + 90f) % 360f;
                   }
                   ch .Add(ch[0]);
                   //ch[m] = ch[0];
@@ -70,32 +83,34 @@ namespace FZYK .Nest
                               j = ((j - 1) % m + m) % m;
                         h = Dis(ch[k], ch[t], ch[t + 1]);
                         l = Len(Sub(ch[t], ch[t + 1])) + Math .Abs(Dot(Sub(ch[t + 1], ch[t]), Sub(ch[i], ch[t + 1]))) / Len(Sub(ch[t], ch[t + 1])) + Math .Abs(Dot(Sub(ch[t], ch[t + 1]), Sub(ch[j], ch[t]))) / Len(Sub(ch[t], ch[t + 1]));
-                        if (Max(area, h * l))
+                        if (Max(_area, h * l))
                         {
-                              height = h;
-                              length = l;
-                              area = h * l;
-                              angle = Angle(ch[t], ch[t + 1]);
+                              _height = h;
+                              _length = l;
+                              _area = h * l;
+                              _angle = Angle(ch[t], ch[t + 1]);
+                              _angle2 = (_angle + 90f) % 360f;
                         }
                   }
-                  Dictionary<string, object> dic = new Dictionary<string, object>();
-                  dic .Add("angle", angle);
-                  dic .Add("angle2", angle2);
-                  dic .Add("area", area);
-                  dic .Add("length", length);
-                  dic .Add("height", height);
-
-                  return dic;
             }
 
             #endregion
             #region 中位线算法计算最小包络平行四边形
             public Dictionary<string, object> MinParallelogram(List<PointF> p)
             {
+                  _angle = 0f;
+                  _area = -1f;
                   List<PointF> pConvexhull = GetConvexHull(p .ToList());
-                  //计算最小平行四边形
+                  //计算最小矩形
+                  Median(pConvexhull);
                   Dictionary<string, object> dic = new Dictionary<string, object>();
-                  dic = Median(pConvexhull);
+                  dic .Add("angle", _angle);
+                  dic .Add("angle2", _angle2);
+                  dic .Add("area", _area);
+                  dic .Add("length", _length);
+                  dic .Add("height", _height);
+                  dic .Add("length2", _length2);
+                  dic .Add("height2", _height2);
                   dic .Add("convexhull", pConvexhull);
                   return dic;
             }
@@ -103,13 +118,8 @@ namespace FZYK .Nest
             /// 中位线法求最小平行四边形，因只处理合并图形，图形为对称，偶数个顶点和边
             /// </summary>
             /// <param name="plist"></param>
-            public Dictionary<string, object> Median(List<PointF> ch)
+            public void Median(List<PointF> ch)
             {
-                  float height = 0f;
-                  float length = 0f;
-                  float area = -1f;
-                  float angle = 0f;
-                  float angle2 = 0f;
                   int n = ch .Count;
                   List<int> indexlist = new List<int>();//已经和其他边组成平行四边形，就跳过搜索
                   float mins = -1;
@@ -152,24 +162,37 @@ namespace FZYK .Nest
                         Vector a0a1 = Sub(a0, a1);
                         float s = Math .Abs(Dis(p2, p0, p1) * Dis(a2, a0, a1) / (Cross(p0p1, a0a1) / Len(p0p1) / Len(a0a1)));
                         float h1 = Dis(p2, p0, p1);
+                        float l1 = Math .Abs(Dis(a2, a0, a1) / (Cross(p0p1, a0a1) / Len(p0p1) / Len(a0a1)));
                         float h2 = Dis(a2, a0, a1);
+                        float l2 = Math .Abs(Dis(p2, p0, p1) / (Cross(p0p1, a0a1) / Len(p0p1) / Len(a0a1)));
                         if (mins < 0 || s < mins)
                         {
                               mins = s;
-                              area = mins;
-                              angle = Angle(ch[i], ch[i + 1]);
-                              angle2 = Angle(ch[index], ch[(index + 1) % n]);
-                              height = Math .Min(h1, h2);
-                              length = Math .Max(h1, h2);
+                              _area = mins;
+                              /*_angle = Angle(ch[i], ch[i + 1]);
+                              _angle2 = Angle(ch[index], ch[(index + 1) % n]);
+                              _height = Math .Min(h1, h2);
+                              _length = Math .Max(h1, h2);*/
+                              if (h1 > h2)
+                              {
+                                    _angle = Angle(ch[i], ch[i + 1]);
+                                    _angle2 = Angle(ch[index], ch[(index + 1) % n]);
+                                    _height = h2;
+                                    _length = l2;
+                                    _height2 = h1;
+                                    _length2 = l1;
+                              }
+                              else
+                              {
+                                    _angle = Angle(ch[index], ch[(index + 1) % n]);
+                                    _angle2 = Angle(ch[i], ch[i + 1]);
+                                    _height = h1;
+                                    _length = l1;
+                                    _height2 = h2;
+                                    _length2 = l2;
+                              }
                         }
                   }
-                  Dictionary<string, object> dic = new Dictionary<string, object>();
-                  dic .Add("angle", angle);
-                  dic .Add("angle2", angle2);
-                  dic .Add("area", area);
-                  dic .Add("length", length);
-                  dic .Add("height", height);
-                  return dic;
             }
             #endregion
             #region 多边形获取凸包
@@ -189,7 +212,9 @@ namespace FZYK .Nest
                         PointF p1 = p[i];
                         PointF p2 = (i == p .Count - 1) ? p[0] : p[i + 1];
                         double tmp = Cross(Sub(p1, p0), Sub(p2, p1));
-                        if (tmp <= 0)
+                        if (tmp <= 0
+                              || (Math .Abs(p1 .X - p0 .X) < _RE && Math .Abs(p1 .X - p2 .X) < _RE)
+                              || (Math .Abs(p1 .Y - p0 .Y) < _RE && Math .Abs(p1 .Y - p2 .Y) < _RE))
                         {
                               ao = true;
                               p .RemoveAt(i);
@@ -687,6 +712,24 @@ namespace FZYK .Nest
             #region 图形组合
 
             /// <summary>
+            /// 从4个方向进行组合，取出包络矩形面积最小的组合,左右上下
+            /// </summary>
+            /// <param name="p"></param>
+            /// <param name="ch"></param>
+            /// <param name="pnew"></param>
+            /// <param name="chnew"></param>
+            /// <param name="T"></param>
+            /// <returns></returns>
+            public Tuple<Dictionary<string, object>, Dictionary<string, object>, Dictionary<string, object>, Dictionary<string, object>> CombineAll(List<PointF> p, List<PointF> ch, List<PointF> pnew, List<PointF> chnew, float T
+                 , float limit, string type, bool matchwidth, float matchrate)
+            {
+                  Dictionary<string, object> dicLeft = CombineLeft(p, ch, pnew, chnew, T, limit, type, matchwidth, matchrate);
+                  Dictionary<string, object> dicRight = CombineRight(p, ch, pnew, chnew, T, limit, type, matchwidth, matchrate);
+                  Dictionary<string, object> dicUp = CombineUp(p, ch, pnew, chnew, T, limit, type, matchwidth, matchrate);
+                  Dictionary<string, object> dicDown = CombineDown(p, ch, pnew, chnew, T, limit, type, matchwidth, matchrate);
+                  return new Tuple<Dictionary<string, object>, Dictionary<string, object>, Dictionary<string, object>, Dictionary<string, object>>(dicLeft, dicRight, dicUp, dicDown);
+            }
+            /// <summary>
             /// 从4个方向进行组合，取出包络矩形面积最小的组合
             /// </summary>
             /// <param name="p"></param>
@@ -696,33 +739,37 @@ namespace FZYK .Nest
             /// <param name="T"></param>
             /// <returns></returns>
             public Dictionary<string, object> Combine(List<PointF> p, List<PointF> ch, List<PointF> pnew, List<PointF> chnew, float T
-                  , float limit, string type)
+                  , float limit, string type, float matchrate)
             {
-                  Dictionary<string, object> dicLeft = CombineLeft(p, ch, pnew, chnew, T, limit, type);
-                  Dictionary<string, object> dicRight = CombineRight(p, ch, pnew, chnew, T, limit, type);
-                  Dictionary<string, object> dicUp = CombineUp(p, ch, pnew, chnew, T, limit, type);
-                  Dictionary<string, object> dicDown = CombineDown(p, ch, pnew, chnew, T, limit, type);
+                  Dictionary<string, object> dicLeft = CombineLeft(p, ch, pnew, chnew, T, limit, type, false, matchrate);
+                  Dictionary<string, object> dicRight = CombineRight(p, ch, pnew, chnew, T, limit, type, false, matchrate);
+                  Dictionary<string, object> dicUp = CombineUp(p, ch, pnew, chnew, T, limit, type, false, matchrate);
+                  Dictionary<string, object> dicDown = CombineDown(p, ch, pnew, chnew, T, limit, type, false, matchrate);
 
                   float minarea = -1;
                   string result = "";
                   if (Convert .ToSingle(dicLeft["area"]) > 0 && (Convert .ToSingle(dicLeft["area"]) < minarea || minarea < 0))
                   {
                         minarea = Convert .ToSingle(dicLeft["area"]);
+                        dicLeft .Add("flag", "left");
                         result = "left";
                   }
                   if (Convert .ToSingle(dicRight["area"]) > 0 && (Convert .ToSingle(dicRight["area"]) < minarea || minarea < 0))
                   {
                         minarea = Convert .ToSingle(dicRight["area"]);
+                        dicRight .Add("flag", "right");
                         result = "right";
                   }
                   if (Convert .ToSingle(dicUp["area"]) > 0 && (Convert .ToSingle(dicUp["area"]) < minarea || minarea < 0))
                   {
                         minarea = Convert .ToSingle(dicUp["area"]);
+                        dicUp .Add("flag", "up");
                         result = "up";
                   }
                   if (Convert .ToSingle(dicDown["area"]) > 0 && (Convert .ToSingle(dicDown["area"]) < minarea || minarea < 0))
                   {
                         minarea = Convert .ToSingle(dicDown["area"]);
+                        dicDown .Add("flag", "down");
                         result = "down";
                   }
 
@@ -738,64 +785,22 @@ namespace FZYK .Nest
             }
             //左下--左上
             public Dictionary<string, object> CombineLeft(List<PointF> p, List<PointF> ch, List<PointF> pnew, List<PointF> chnew
-                  , float T, float limit, string type)
+                  , float T, float limit, string type, bool matchwidth, float matchrate)
             {
                   //右边界
                   float maxy = -99999;
                   float miny = 99999;
-                  float maxx = -99999;
-                  float minx = 99999;
-                  float rightx = -99999;
                   for (int i = 0; i < ch .Count; i++)
                   {
                         if (maxy < ch[i] .Y)
                         {
                               maxy = ch[i] .Y;
-                              maxx = ch[i] .X;
-                        }
-                        else if (maxy == ch[i] .Y)
-                        {
-                              maxx = Math .Max(maxx, ch[i] .X);
                         }
                         if (miny > ch[i] .Y)
                         {
                               miny = ch[i] .Y;
-                              minx = ch[i] .X;
-                        }
-                        else if (miny == ch[i] .Y)
-                        {
-                              minx = Math .Max(minx, ch[i] .X);
                         }
                   }
-                  rightx = Math .Max(minx, maxx);
-                  //左边界
-                  float maxy2 = -99999;
-                  float miny2 = 99999;
-                  float maxx2 = -99999;
-                  float minx2 = 99999;
-                  float leftx = 99999;
-                  for (int i = 0; i < chnew .Count; i++)
-                  {
-                        if (maxy2 < chnew[i] .Y)
-                        {
-                              maxy2 = chnew[i] .Y;
-                              maxx2 = chnew[i] .X;
-                        }
-                        else if (maxy2 == chnew[i] .Y)
-                        {
-                              maxx2 = Math .Min(maxx2, chnew[i] .X);
-                        }
-                        if (miny2 > chnew[i] .Y)
-                        {
-                              miny2 = chnew[i] .Y;
-                              minx2 = chnew[i] .X;
-                        }
-                        else if (miny2 == chnew[i] .Y)
-                        {
-                              minx2 = Math .Min(minx2, chnew[i] .X);
-                        }
-                  }
-                  leftx = Math .Min(minx2, maxx2);
                   //高度
                   float h = maxy - miny;
                   //最小矩形面积
@@ -803,6 +808,7 @@ namespace FZYK .Nest
                   float movex = 0;
                   float movey = 0;
                   float angle = 0;
+                  float angle2 = 0;
                   float length = 0f;
                   float height = 0f;
                   List<PointF> chCombine = new List<PointF>();
@@ -810,14 +816,11 @@ namespace FZYK .Nest
                   for (int i = 1; i < Math .Floor(2 * h / T); i++)
                   {
                         //上边界，下边界
-                        float upy = Math .Min(maxy, maxy2 + i * T);
-                        float downy = Math .Max(miny, miny2 + i * T);
-
                         List<PointF> chnew_move = Move(chnew, 0, i * T);
                         List<PointF> pnew_move = Move(pnew, 0, i * T);
 
-                        List<PointF> p1 = p .Where(t => t .Y <= upy && t .Y >= downy && t .X <= rightx) .ToList();
-                        List<PointF> p2 = pnew_move .Where(t => t .Y <= upy && t .Y >= downy && t .X >= leftx) .ToList();
+                        List<PointF> p1 = p;
+                        List<PointF> p2 = pnew_move;
 
                         List<Line> l1 = new List<Line>();
                         List<Line> l2 = new List<Line>();
@@ -825,21 +828,13 @@ namespace FZYK .Nest
                         {
                               PointF start = p[j];
                               PointF end = Next(p, j);
-                              if ((start .Y <= upy && start .Y >= downy && start .X <= rightx)
-                                  || (end .Y <= upy && end .Y >= downy && end .X <= rightx))
-                              {
-                                    l1 .Add(new Line(start, end));
-                              }
+                              l1 .Add(new Line(start, end));
                         }
                         for (int j = 0; j < pnew_move .Count; j++)
                         {
                               PointF start = pnew_move[j];
                               PointF end = Next(pnew_move, j);
-                              if ((start .Y <= upy && start .Y >= downy && start .X >= leftx)
-                                  || (end .Y <= upy && end .Y >= downy && end .X >= leftx))
-                              {
-                                    l2 .Add(new Line(start, end));
-                              }
+                              l2 .Add(new Line(start, end));
                         }
                         //计算最小平移距离
                         float mindis = 99999;
@@ -913,8 +908,26 @@ namespace FZYK .Nest
                               float area0 = Convert .ToSingle(dic0["area"]);
                               float length0 = Convert .ToSingle(dic0["length"]);
                               float height0 = Convert .ToSingle(dic0["height"]);
+                              float length02 = Convert .ToSingle(dic0["length2"]);
+                              float height02 = Convert .ToSingle(dic0["height2"]);
+
+                              //test
+                              if (limit > 0 && matchwidth)
+                              {
+                                    if (height02 > height0 && height02 >= limit * matchrate && height02 <= limit)
+                                    {
+                                          area0 = limit * length02;
+                                          dic0["area"] = area0;
+                                    }
+                                    else if (height0 > height02 && height0 >= limit * matchrate && height0 <= limit)
+                                    {
+                                          area0 = limit * length0;
+                                          dic0["area"] = area0;
+                                    }
+                              }
+
                               if (limit < 0 ||
-                                   (length0 <= limit && height0 <= limit))
+                                   (height02 <= limit && height0 <= limit))
                               {
                                     if (area < 0 || area > area0)
                                     {
@@ -970,6 +983,7 @@ namespace FZYK .Nest
                               movex = mindis;
                               movey = i * T;
                               angle = Convert .ToSingle(dicCombine["angle"]);
+                              angle2 = Convert .ToSingle(dicCombine["angle2"]);
                               length = Convert .ToSingle(dicCombine["length"]);
                               height = Convert .ToSingle(dicCombine["height"]);
                               chCombine = (List<PointF>)dicCombine["convexhull"];
@@ -979,7 +993,8 @@ namespace FZYK .Nest
                   dic .Add("area", area);
                   dic .Add("movex", movex);
                   dic .Add("movey", movey);
-                  dic .Add("angle", angle);
+                  dic .Add("angle", (angle + 90f) % 360f);
+                  dic .Add("angle2", (angle2 + 90f) % 360f);
                   dic .Add("length", length);
                   dic .Add("height", height);
                   dic .Add("convexhull", chCombine);
@@ -987,13 +1002,11 @@ namespace FZYK .Nest
             }
             //右下--右上
             public Dictionary<string, object> CombineRight(List<PointF> p, List<PointF> ch, List<PointF> pnew, List<PointF> chnew
-                  , float T, float limit, string type)
+                  , float T, float limit, string type, bool matchwidth, float matchrate)
             {
                   //左边界
                   float maxy2 = -99999;
                   float miny2 = 99999;
-                  float maxx2 = -99999;
-                  float minx2 = 99999;
                   float leftx = 99999;
                   float left = 99999;
                   float right = -99999;
@@ -1002,20 +1015,10 @@ namespace FZYK .Nest
                         if (maxy2 < ch[i] .Y)
                         {
                               maxy2 = ch[i] .Y;
-                              maxx2 = ch[i] .X;
-                        }
-                        else if (maxy2 == ch[i] .Y)
-                        {
-                              maxx2 = Math .Min(maxx2, ch[i] .X);
                         }
                         if (miny2 > ch[i] .Y)
                         {
                               miny2 = ch[i] .Y;
-                              minx2 = ch[i] .X;
-                        }
-                        else if (miny2 == ch[i] .Y)
-                        {
-                              minx2 = Math .Min(minx2, ch[i] .X);
                         }
                         if (right < ch[i] .X)
                         {
@@ -1029,56 +1032,24 @@ namespace FZYK .Nest
                   //高度，宽度
                   float h = maxy2 - miny2;
                   float l = right - left;
-                  leftx = Math .Min(minx2, maxx2);
-                  //右边界
-                  float maxy = -99999;
-                  float miny = 99999;
-                  float maxx = -99999;
-                  float minx = 99999;
-                  float rightx = -99999;
-                  for (int i = 0; i < chnew .Count; i++)
-                  {
-                        if (maxy < chnew[i] .Y)
-                        {
-                              maxy = chnew[i] .Y;
-                              maxx = chnew[i] .X;
-                        }
-                        else if (maxy == chnew[i] .Y)
-                        {
-                              maxx = Math .Max(maxx, chnew[i] .X);
-                        }
-                        if (miny > chnew[i] .Y)
-                        {
-                              miny = chnew[i] .Y;
-                              minx = chnew[i] .X;
-                        }
-                        else if (miny == chnew[i] .Y)
-                        {
-                              minx = Math .Max(minx, chnew[i] .X);
-                        }
-                  }
-                  rightx = Math .Max(minx, maxx) + 2 * l;
-
                   //最小矩形面积
                   float area = -1;
                   float movex = 0;
                   float movey = 0;
                   float angle = 0;
+                  float angle2 = 0;
                   float length = 0;
                   float height = 0;
                   List<PointF> chCombine = new List<PointF>();
                   //副图向上移动，计算最小平移距离，再向左移动与主图进行组合，求最小包络矩形
                   for (int i = 1; i < Math .Floor(2 * h / T); i++)
                   {
-                        //上边界，下边界
-                        float upy = Math .Min(maxy + i * T, maxy2);
-                        float downy = Math .Max(miny + i * T, miny2);
 
                         List<PointF> chnew_move = Move(chnew, l * 2, i * T);
                         List<PointF> pnew_move = Move(pnew, l * 2, i * T);
 
-                        List<PointF> p1 = pnew_move .Where(t => t .Y <= upy && t .Y >= downy && t .X <= rightx) .ToList();
-                        List<PointF> p2 = p .Where(t => t .Y <= upy && t .Y >= downy && t .X >= leftx) .ToList();
+                        List<PointF> p1 = pnew_move;
+                        List<PointF> p2 = p;
 
                         List<Line> l1 = new List<Line>();
                         List<Line> l2 = new List<Line>();
@@ -1086,21 +1057,13 @@ namespace FZYK .Nest
                         {
                               PointF start = pnew_move[j];
                               PointF end = Next(pnew_move, j);
-                              if ((start .Y <= upy && start .Y >= downy && start .X <= rightx)
-                                  || (end .Y <= upy && end .Y >= downy && end .X <= rightx))
-                              {
-                                    l1 .Add(new Line(start, end));
-                              }
+                              l1 .Add(new Line(start, end));
                         }
                         for (int j = 0; j < p .Count; j++)
                         {
                               PointF start = p[j];
                               PointF end = Next(p, j);
-                              if ((start .Y <= upy && start .Y >= downy && start .X >= leftx)
-                                  || (end .Y <= upy && end .Y >= downy && end .X >= leftx))
-                              {
-                                    l2 .Add(new Line(start, end));
-                              }
+                              l2 .Add(new Line(start, end));
                         }
                         //计算最小平移距离
                         float mindis = 99999;
@@ -1174,6 +1137,23 @@ namespace FZYK .Nest
                               float area0 = Convert .ToSingle(dic0["area"]);
                               float length0 = Convert .ToSingle(dic0["length"]);
                               float height0 = Convert .ToSingle(dic0["height"]);
+                              float length02 = Convert .ToSingle(dic0["length2"]);
+                              float height02 = Convert .ToSingle(dic0["height2"]);
+
+                              if (limit > 0 && matchwidth)
+                              {
+                                    if (height02 > height0 && height02 >= limit * matchrate && height02 <= limit)
+                                    {
+                                          area0 = limit * length02;
+                                          dic0["area"] = area0;
+                                    }
+                                    else if (height0 > height02 && height0 >= limit * matchrate && height0 <= limit)
+                                    {
+                                          area0 = limit * length0;
+                                          dic0["area"] = area0;
+                                    }
+                              }
+
                               if (limit < 0 ||
                                    (length0 <= limit && height0 <= limit))
                               {
@@ -1231,6 +1211,7 @@ namespace FZYK .Nest
                               movex = l * 2 - mindis;
                               movey = i * T;
                               angle = Convert .ToSingle(dicCombine["angle"]);
+                              angle2 = Convert .ToSingle(dicCombine["angle2"]);
                               length = Convert .ToSingle(dicCombine["length"]);
                               height = Convert .ToSingle(dicCombine["height"]);
                               chCombine = (List<PointF>)dicCombine["convexhull"];
@@ -1240,7 +1221,8 @@ namespace FZYK .Nest
                   dic .Add("area", area);
                   dic .Add("movex", movex);
                   dic .Add("movey", movey);
-                  dic .Add("angle", angle);
+                  dic .Add("angle", (angle + 90f) % 360f);
+                  dic .Add("angle2", (angle2 + 90f) % 360f);
                   dic .Add("length", length);
                   dic .Add("height", height);
                   dic .Add("convexhull", chCombine);
@@ -1248,64 +1230,22 @@ namespace FZYK .Nest
             }
             //左下--右下
             public Dictionary<string, object> CombineDown(List<PointF> p, List<PointF> ch, List<PointF> pnew, List<PointF> chnew
-                  , float T, float limit, string type)
+                  , float T, float limit, string type, bool matchwidth, float matchrate)
             {
                   //上边界
-                  float maxy = -99999;
-                  float miny = 99999;
                   float maxx = -99999;
                   float minx = 99999;
-                  float upy = -99999;
                   for (int i = 0; i < ch .Count; i++)
                   {
                         if (maxx < ch[i] .X)
                         {
-                              maxy = ch[i] .Y;
                               maxx = ch[i] .X;
-                        }
-                        else if (maxx == ch[i] .X)
-                        {
-                              maxy = Math .Max(maxy, ch[i] .Y);
                         }
                         if (minx > ch[i] .X)
                         {
-                              miny = ch[i] .Y;
                               minx = ch[i] .X;
                         }
-                        else if (minx == ch[i] .X)
-                        {
-                              miny = Math .Max(miny, ch[i] .Y);
-                        }
                   }
-                  upy = Math .Max(miny, maxy);
-                  //左边界
-                  float maxy2 = -99999;
-                  float miny2 = 99999;
-                  float maxx2 = -99999;
-                  float minx2 = 99999;
-                  float downy = 99999;
-                  for (int i = 0; i < chnew .Count; i++)
-                  {
-                        if (maxx2 < chnew[i] .X)
-                        {
-                              maxy2 = chnew[i] .Y;
-                              maxx2 = chnew[i] .X;
-                        }
-                        else if (maxx2 == chnew[i] .X)
-                        {
-                              maxy2 = Math .Min(maxy2, chnew[i] .Y);
-                        }
-                        if (minx2 > chnew[i] .X)
-                        {
-                              miny2 = chnew[i] .Y;
-                              minx2 = chnew[i] .X;
-                        }
-                        else if (minx2 == chnew[i] .X)
-                        {
-                              miny2 = Math .Min(miny2, chnew[i] .Y);
-                        }
-                  }
-                  downy = Math .Min(miny2, maxy2);
                   //移动长度
                   float l = maxx - minx;
                   //最小矩形面积
@@ -1313,21 +1253,18 @@ namespace FZYK .Nest
                   float movex = 0;
                   float movey = 0;
                   float angle = 0;
+                  float angle2 = 0;
                   float length = 0;
                   float height = 0;
                   List<PointF> chCombine = new List<PointF>();
                   //副图向上移动，计算最小平移距离，再向右移动与主图进行组合，求最小包络矩形
                   for (int i = 1; i < Math .Floor(2 * l / T); i++)
                   {
-                        //左右边界
-                        float rightx = Math .Min(maxx, maxx2 + i * T);
-                        float leftx = Math .Max(minx, minx2 + i * T);
-
                         List<PointF> chnew_move = Move(chnew, i * T, 0);
                         List<PointF> pnew_move = Move(pnew, i * T, 0);
 
-                        List<PointF> p1 = p .Where(t => t .X <= rightx && t .X >= leftx && t .Y <= upy) .ToList();
-                        List<PointF> p2 = pnew_move .Where(t => t .X <= rightx && t .X >= leftx && t .Y >= downy) .ToList();
+                        List<PointF> p1 = p;
+                        List<PointF> p2 = pnew_move;
 
                         List<Line> l1 = new List<Line>();
                         List<Line> l2 = new List<Line>();
@@ -1335,21 +1272,13 @@ namespace FZYK .Nest
                         {
                               PointF start = p[j];
                               PointF end = Next(p, j);
-                              if ((start .X <= rightx && start .X >= leftx && start .Y <= upy)
-                                  || (end .X <= rightx && end .X >= leftx && end .Y <= upy))
-                              {
-                                    l1 .Add(new Line(start, end));
-                              }
+                              l1 .Add(new Line(start, end));
                         }
                         for (int j = 0; j < pnew_move .Count; j++)
                         {
                               PointF start = pnew_move[j];
                               PointF end = Next(pnew_move, j);
-                              if ((start .X <= rightx && start .X >= leftx && start .Y >= downy)
-                                  || (end .X <= rightx && end .X >= leftx && end .Y >= downy))
-                              {
-                                    l2 .Add(new Line(start, end));
-                              }
+                              l2 .Add(new Line(start, end));
                         }
                         //计算最小平移距离
                         float mindis = 99999;
@@ -1423,6 +1352,23 @@ namespace FZYK .Nest
                               float area0 = Convert .ToSingle(dic0["area"]);
                               float length0 = Convert .ToSingle(dic0["length"]);
                               float height0 = Convert .ToSingle(dic0["height"]);
+                              float length02 = Convert .ToSingle(dic0["length2"]);
+                              float height02 = Convert .ToSingle(dic0["height2"]);
+
+                              if (limit > 0 && matchwidth)
+                              {
+                                    if (height02 > height0 && height02 >= limit * matchrate && height02 <= limit)
+                                    {
+                                          area0 = limit * length02;
+                                          dic0["area"] = area0;
+                                    }
+                                    else if (height0 > height02 && height0 >= limit * matchrate && height0 <= limit)
+                                    {
+                                          area0 = limit * length0;
+                                          dic0["area"] = area0;
+                                    }
+                              }
+
                               if (limit < 0 ||
                                    (length0 <= limit && height0 <= limit))
                               {
@@ -1480,6 +1426,7 @@ namespace FZYK .Nest
                               movex = i * T;
                               movey = mindis;
                               angle = Convert .ToSingle(dicCombine["angle"]);
+                              angle2 = Convert .ToSingle(dicCombine["angle2"]);
                               length = Convert .ToSingle(dicCombine["length"]);
                               height = Convert .ToSingle(dicCombine["height"]);
                               chCombine = (List<PointF>)dicCombine["convexhull"];
@@ -1489,7 +1436,8 @@ namespace FZYK .Nest
                   dic .Add("area", area);
                   dic .Add("movex", movex);
                   dic .Add("movey", movey);
-                  dic .Add("angle", angle);
+                  dic .Add("angle", (angle + 90f) % 360f);
+                  dic .Add("angle2", (angle2 + 90f) % 360f);
                   dic .Add("length", length);
                   dic .Add("height", height);
                   dic .Add("convexhull", chCombine);
@@ -1497,11 +1445,9 @@ namespace FZYK .Nest
             }
             //左上--右上
             public Dictionary<string, object> CombineUp(List<PointF> p, List<PointF> ch, List<PointF> pnew, List<PointF> chnew
-                  , float T, float limit, string type)
+                  , float T, float limit, string type, bool matchwidth, float matchrate)
             {
                   //下边界
-                  float maxy2 = -99999;
-                  float miny2 = 99999;
                   float maxx2 = -99999;
                   float minx2 = 99999;
                   float downy = 99999;
@@ -1511,21 +1457,11 @@ namespace FZYK .Nest
                   {
                         if (maxx2 < ch[i] .X)
                         {
-                              maxy2 = ch[i] .Y;
                               maxx2 = ch[i] .X;
-                        }
-                        else if (maxx2 == ch[i] .X)
-                        {
-                              maxy2 = Math .Min(maxy2, ch[i] .Y);
                         }
                         if (minx2 > ch[i] .X)
                         {
-                              miny2 = ch[i] .Y;
                               minx2 = ch[i] .X;
-                        }
-                        else if (minx2 == ch[i] .X)
-                        {
-                              miny2 = Math .Min(miny2, ch[i] .Y);
                         }
                         if (up < ch[i] .Y)
                         {
@@ -1539,56 +1475,23 @@ namespace FZYK .Nest
                   //高度，宽度
                   float h = up - down;
                   float l = maxx2 - minx2;
-                  downy = Math .Min(miny2, maxy2);
-                  //上边界
-                  float maxy = -99999;
-                  float miny = 99999;
-                  float maxx = -99999;
-                  float minx = 99999;
-                  float upy = -99999;
-                  for (int i = 0; i < chnew .Count; i++)
-                  {
-                        if (maxx < chnew[i] .X)
-                        {
-                              maxy = chnew[i] .Y;
-                              maxx = chnew[i] .X;
-                        }
-                        else if (maxx == chnew[i] .X)
-                        {
-                              maxy = Math .Max(maxy, chnew[i] .Y);
-                        }
-                        if (minx > chnew[i] .X)
-                        {
-                              miny = chnew[i] .Y;
-                              minx = chnew[i] .X;
-                        }
-                        else if (minx == chnew[i] .X)
-                        {
-                              miny = Math .Max(miny, chnew[i] .Y);
-                        }
-                  }
-                  upy = Math .Max(miny, maxy) + 2 * h;
-
                   //最小矩形面积
                   float area = -1;
                   float movex = 0;
                   float movey = 0;
                   float angle = 0;
+                  float angle2 = 0;
                   float length = 0;
                   float height = 0;
                   List<PointF> chCombine = new List<PointF>();
                   //副图向上移动，计算最小平移距离，再向左移动与主图进行组合，求最小包络矩形
                   for (int i = 1; i < Math .Floor(2 * l / T); i++)
                   {
-                        //上边界，下边界
-                        float rightx = Math .Min(maxx + i * T, maxx2);
-                        float leftx = Math .Max(minx + i * T, minx2);
-
                         List<PointF> chnew_move = Move(chnew, i * T, h * 2);
                         List<PointF> pnew_move = Move(pnew, i * T, h * 2);
 
-                        List<PointF> p1 = pnew_move .Where(t => t .X <= rightx && t .X >= leftx && t .Y <= upy) .ToList();
-                        List<PointF> p2 = p .Where(t => t .X <= rightx && t .X >= leftx && t .Y >= downy) .ToList();
+                        List<PointF> p1 = pnew_move;
+                        List<PointF> p2 = p;
 
                         List<Line> l1 = new List<Line>();
                         List<Line> l2 = new List<Line>();
@@ -1596,21 +1499,13 @@ namespace FZYK .Nest
                         {
                               PointF start = pnew_move[j];
                               PointF end = Next(pnew_move, j);
-                              if ((start .X <= rightx && start .X >= leftx && start .Y <= upy)
-                                  || (end .X <= rightx && end .X >= leftx && end .Y <= upy))
-                              {
-                                    l1 .Add(new Line(start, end));
-                              }
+                              l1 .Add(new Line(start, end));
                         }
                         for (int j = 0; j < p .Count; j++)
                         {
                               PointF start = p[j];
                               PointF end = Next(p, j);
-                              if ((start .X <= rightx && start .X >= leftx && start .Y >= downy)
-                                  || (end .X <= rightx && end .X >= leftx && end .Y >= downy))
-                              {
-                                    l2 .Add(new Line(start, end));
-                              }
+                              l2 .Add(new Line(start, end));
                         }
                         //计算最小平移距离
                         float mindis = 99999;
@@ -1684,6 +1579,23 @@ namespace FZYK .Nest
                               float area0 = Convert .ToSingle(dic0["area"]);
                               float length0 = Convert .ToSingle(dic0["length"]);
                               float height0 = Convert .ToSingle(dic0["height"]);
+                              float length02 = Convert .ToSingle(dic0["length2"]);
+                              float height02 = Convert .ToSingle(dic0["height2"]);
+
+                              if (limit > 0 && matchwidth)
+                              {
+                                    if (height02 > height0 && height02 >= limit * matchrate && height02 <= limit)
+                                    {
+                                          area0 = limit * length02;
+                                          dic0["area"] = area0;
+                                    }
+                                    else if (height0 > height02 && height0 >= limit * matchrate && height0 <= limit)
+                                    {
+                                          area0 = limit * length0;
+                                          dic0["area"] = area0;
+                                    }
+                              }
+
                               if (limit < 0 ||
                                    (length0 <= limit && height0 <= limit))
                               {
@@ -1741,6 +1653,7 @@ namespace FZYK .Nest
                               movex = i * T;
                               movey = h * 2 - mindis;
                               angle = Convert .ToSingle(dicCombine["angle"]);
+                              angle2 = Convert .ToSingle(dicCombine["angle2"]);
                               length = Convert .ToSingle(dicCombine["length"]);
                               height = Convert .ToSingle(dicCombine["height"]);
                               chCombine = (List<PointF>)dicCombine["convexhull"];
@@ -1750,7 +1663,8 @@ namespace FZYK .Nest
                   dic .Add("area", area);
                   dic .Add("movex", movex);
                   dic .Add("movey", movey);
-                  dic .Add("angle", angle);
+                  dic .Add("angle", (angle + 90f) % 360f);
+                  dic .Add("angle2", (angle2 + 90f) % 360f);
                   dic .Add("length", length);
                   dic .Add("height", height);
                   dic .Add("convexhull", chCombine);

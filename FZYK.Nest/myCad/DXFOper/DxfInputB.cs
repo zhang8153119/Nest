@@ -37,7 +37,7 @@ namespace myCad .DXFOper
                   }
                   else
                   {
-                        MessageBox .Show("没有选择对应的文件");
+                        //MessageBox .Show("没有选择对应的文件");
                   }
                   return listPlate;
             }

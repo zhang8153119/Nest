@@ -49,14 +49,16 @@ namespace FZYK .Nest
             public int AngleCombine { get; set; }
             public float Area { get; set; }
             public int Count { get; set; }
+            public int CombineType { get; set; }//1-16
 
-            public Basic(int id, int angle, int anglecombine, float area, int count)
+            public Basic(int id, int angle, int anglecombine, float area, int count, int combinetype)
             {
                   Id = id;
                   Angle = angle;
                   AngleCombine = anglecombine;
                   Area = area;
                   Count = count;
+                  CombineType = combinetype;
             }
 
             public Basic Copy()
@@ -65,7 +67,8 @@ namespace FZYK .Nest
                         , Angle
                         , AngleCombine
                         , Area
-                        , Count);
+                        , Count
+                        , CombineType);
                   return newbasic;
             }
       }

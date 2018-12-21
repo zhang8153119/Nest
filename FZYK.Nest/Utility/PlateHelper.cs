@@ -1,15 +1,39 @@
 ﻿using myCad .Model;
-using myCad .Shape;
 using myCad .ShapeOper;
 using System;
 using System .Collections .Generic;
 using System .Drawing;
-using System .Linq;
-using System .Text;
-using System .Threading .Tasks;
 
 namespace FZYK .Nest
 {
+      public class PlateCombine
+      {
+            public PlateModel Plate1 { get; set; }
+            public PlateModel Plate2 { get; set; }
+            public RectangleF Rect { get; set; }
+            public List<GridData> GridValue { get; set; }
+            public string flag { get; set; }//test
+            public int id { get; set; }
+            public float angle1 { get; set; }
+            public float angle2 { get; set; }
+            public string key { get; set; } = "";
+            public bool ifMatchWidth { get; set; } = false;
+            public PlateCombine()
+            {
+            }
+            public PlateCombine(PlateModel p1, PlateModel p2, float a1 = 0, float a2 = 0)
+            {
+                  Plate1 = p1;
+                  Plate2 = p2;
+                  angle1 = a1;
+                  angle2 = a2;
+            }
+
+            public object Copy()
+            {
+                  return new PlateCombine() as object;
+            }
+      }
       public class PlateHelper
       {
             float RE = 0.00001f;
@@ -41,13 +65,114 @@ namespace FZYK .Nest
                   List<PointF> p = pm .OutModel .ExpandPoint;
                   List<PointF> ch = rect .GetConvexHull(pm .OutModel .ExpandPoint);
 
-                  Dictionary<string, object> diccombine = rect .Combine(p, ch, pnew, chnew, T, limit, type);
+                  Dictionary<string, object> diccombine = rect .Combine(p, ch, pnew, chnew, T, limit, type, 0.9f);
                   List<PointF> chcombine = (List<PointF>)diccombine["convexhull"];
                   Move(pmnew, Convert .ToSingle(diccombine["movex"]), Convert .ToSingle(diccombine["movey"]));
                   RotateAndMove(pm, pmnew, Convert .ToSingle(diccombine["angle"]));
 
                   PlateCombine pc = new PlateCombine(pm, pmnew);
+                  pc .flag = diccombine["flag"] .ToString();
                   pc .Rect = pm .Rect = pmnew .Rect = GetRect(pm .OutModel .ExpandPoint, pmnew .OutModel .ExpandPoint);
+                  return pc;
+            }
+            public List<PlateCombine> GetMinPlateCombineAll(PlateModel source, float T, string type, float limit = -1, bool _matchwidth = false
+                  , float _matchrate = 0.9f)
+            {
+                  RectHelper rect = new RectHelper();
+                  CopyOper co = new CopyOper();
+                  PlateModel pm = co .CopyPlate(source);
+                  PlateModel pmnew = co .CopyPlate(source);//旋转180后的图形
+                  pmnew = Rotate(pmnew, 180);
+
+                  List<PointF> pnew = pmnew .OutModel .ExpandPoint;
+                  List<PointF> chnew = rect .GetConvexHull(pmnew .OutModel .ExpandPoint);
+
+                  List<PointF> p = pm .OutModel .ExpandPoint;
+                  List<PointF> ch = rect .GetConvexHull(pm .OutModel .ExpandPoint);
+                  var tp = rect .CombineAll(p, ch, pnew, chnew, T, limit, type, _matchwidth, _matchrate);
+                  List<PlateCombine> pc = new List<PlateCombine>();
+
+                  if (Convert .ToSingle(tp .Item1["area"] .ToString()) > 0)
+                  {
+                        PlateModel pm1 = co .CopyPlate(pm);
+                        PlateModel pmnew1 = co .CopyPlate(pmnew);
+                        Move(pmnew1, Convert .ToSingle(tp .Item1["movex"]), Convert .ToSingle(tp .Item1["movey"]));
+                        RotateAndMove(pm1, pmnew1, Convert .ToSingle(tp .Item1["angle"]));
+                        PlateCombine pc1 = new PlateCombine(pm1, pmnew1, Convert .ToSingle(tp .Item1["angle"]), Convert .ToSingle(tp .Item1["angle2"]));
+                        pc1 .Rect = pm1 .Rect = pmnew1 .Rect = GetRect(pm1 .OutModel .ExpandPoint, pmnew1 .OutModel .ExpandPoint);
+                        pc .Add(pc1);
+                  }
+                  if (Convert .ToSingle(tp .Item2["area"] .ToString()) > 0)
+                  {
+                        PlateModel pm2 = co .CopyPlate(pm);
+                        PlateModel pmnew2 = co .CopyPlate(pmnew);
+                        Move(pmnew2, Convert .ToSingle(tp .Item2["movex"]), Convert .ToSingle(tp .Item2["movey"]));
+                        RotateAndMove(pm2, pmnew2, Convert .ToSingle(tp .Item2["angle"]));
+                        PlateCombine pc2 = new PlateCombine(pm2, pmnew2, Convert .ToSingle(tp .Item1["angle"]), Convert .ToSingle(tp .Item1["angle2"]));
+                        pc2 .Rect = pm2 .Rect = pmnew2 .Rect = GetRect(pm2 .OutModel .ExpandPoint, pmnew2 .OutModel .ExpandPoint);
+                        pc .Add(pc2);
+                  }
+                  if (Convert .ToSingle(tp .Item3["area"] .ToString()) > 0)
+                  {
+                        PlateModel pm3 = co .CopyPlate(pm);
+                        PlateModel pmnew3 = co .CopyPlate(pmnew);
+                        Move(pmnew3, Convert .ToSingle(tp .Item3["movex"]), Convert .ToSingle(tp .Item3["movey"]));
+                        RotateAndMove(pm3, pmnew3, Convert .ToSingle(tp .Item3["angle"]));
+                        PlateCombine pc3 = new PlateCombine(pm3, pmnew3, Convert .ToSingle(tp .Item1["angle"]), Convert .ToSingle(tp .Item1["angle2"]));
+                        pc3 .Rect = pm3 .Rect = pmnew3 .Rect = GetRect(pm3 .OutModel .ExpandPoint, pmnew3 .OutModel .ExpandPoint);
+                        pc .Add(pc3);
+                  }
+                  if (Convert .ToSingle(tp .Item4["area"] .ToString()) > 0)
+                  {
+                        PlateModel pm4 = co .CopyPlate(pm);
+                        PlateModel pmnew4 = co .CopyPlate(pmnew);
+                        Move(pmnew4, Convert .ToSingle(tp .Item4["movex"]), Convert .ToSingle(tp .Item4["movey"]));
+                        RotateAndMove(pm4, pmnew4, Convert .ToSingle(tp .Item4["angle"]));
+                        PlateCombine pc4 = new PlateCombine(pm4, pmnew4, Convert .ToSingle(tp .Item1["angle"]), Convert .ToSingle(tp .Item1["angle2"]));
+                        pc4 .Rect = pm4 .Rect = pmnew4 .Rect = GetRect(pm4 .OutModel .ExpandPoint, pmnew4 .OutModel .ExpandPoint);
+                        pc .Add(pc4);
+                  }
+                  if (Convert .ToSingle(tp .Item1["area"] .ToString()) > 0)
+                  {
+                        PlateModel pm5 = co .CopyPlate(pm);
+                        PlateModel pmnew5 = co .CopyPlate(pmnew);
+                        Move(pmnew5, Convert .ToSingle(tp .Item1["movex"]), Convert .ToSingle(tp .Item1["movey"]));
+                        RotateAndMove(pm5, pmnew5, Convert .ToSingle(tp .Item1["angle2"]));
+                        PlateCombine pc5 = new PlateCombine(pm5, pmnew5, Convert .ToSingle(tp .Item1["angle"]), Convert .ToSingle(tp .Item1["angle2"]));
+                        pc5 .Rect = pm5 .Rect = pmnew5 .Rect = GetRect(pm5 .OutModel .ExpandPoint, pmnew5 .OutModel .ExpandPoint);
+                        pc .Add(pc5);
+                  }
+                  if (Convert .ToSingle(tp .Item2["area"] .ToString()) > 0)
+                  {
+                        PlateModel pm6 = co .CopyPlate(pm);
+                        PlateModel pmnew6 = co .CopyPlate(pmnew);
+                        Move(pmnew6, Convert .ToSingle(tp .Item2["movex"]), Convert .ToSingle(tp .Item2["movey"]));
+                        RotateAndMove(pm6, pmnew6, Convert .ToSingle(tp .Item2["angle2"]));
+                        PlateCombine pc6 = new PlateCombine(pm6, pmnew6, Convert .ToSingle(tp .Item1["angle"]), Convert .ToSingle(tp .Item1["angle2"]));
+                        pc6 .Rect = pm6 .Rect = pmnew6 .Rect = GetRect(pm6 .OutModel .ExpandPoint, pmnew6 .OutModel .ExpandPoint);
+                        pc .Add(pc6);
+                  }
+                  if (Convert .ToSingle(tp .Item3["area"] .ToString()) > 0)
+                  {
+                        PlateModel pm7 = co .CopyPlate(pm);
+                        PlateModel pmnew7 = co .CopyPlate(pmnew);
+                        Move(pmnew7, Convert .ToSingle(tp .Item3["movex"]), Convert .ToSingle(tp .Item3["movey"]));
+                        RotateAndMove(pm7, pmnew7, Convert .ToSingle(tp .Item3["angle2"]));
+                        PlateCombine pc7 = new PlateCombine(pm7, pmnew7, Convert .ToSingle(tp .Item1["angle"]), Convert .ToSingle(tp .Item1["angle2"]));
+                        pc7 .Rect = pm7 .Rect = pmnew7 .Rect = GetRect(pm7 .OutModel .ExpandPoint, pmnew7 .OutModel .ExpandPoint);
+                        pc .Add(pc7);
+                  }
+                  if (Convert .ToSingle(tp .Item4["area"] .ToString()) > 0)
+                  {
+                        PlateModel pm8 = co .CopyPlate(pm);
+                        PlateModel pmnew8 = co .CopyPlate(pmnew);
+                        Move(pmnew8, Convert .ToSingle(tp .Item4["movex"]), Convert .ToSingle(tp .Item4["movey"]));
+                        RotateAndMove(pm8, pmnew8, Convert .ToSingle(tp .Item4["angle2"]));
+                        PlateCombine pc8 = new PlateCombine(pm8, pmnew8, Convert .ToSingle(tp .Item1["angle"]), Convert .ToSingle(tp .Item1["angle2"]));
+                        pc8 .Rect = pm8 .Rect = pmnew8 .Rect = GetRect(pm8 .OutModel .ExpandPoint, pmnew8 .OutModel .ExpandPoint);
+                        pc .Add(pc8);
+                  }
+
                   return pc;
             }
             /// <summary>

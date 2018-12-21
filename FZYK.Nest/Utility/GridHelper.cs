@@ -402,7 +402,7 @@ namespace FZYK .Nest
                                     }
                               }
                               else if ((pl .Y > p .Y && pn .Y > p .Y)//不重合，为极值点
-                                    || (pl .Y < p .Y && pl .Y < p .Y))
+                                    || (pl .Y < p .Y && pn .Y < p .Y))
                               {
                                     plist .Add(plist[i]);
                               }
@@ -1066,7 +1066,7 @@ namespace FZYK .Nest
                   }
             }
       }
-      public class GridData
+      public struct GridData
       {
             public int Row { get; set; }
             public int Col { get; set; }
@@ -1080,11 +1080,46 @@ namespace FZYK .Nest
             }
 
       }
-
+      public class ShapeLib
+      {
+            public List<MyPoint> PointList { get; set; }
+            public List<MyLine> LineList { get; set; }
+            public ShapeLib()
+            {
+                  PointList = new List<MyPoint>();
+                  LineList = new List<MyLine>();
+            }
+            public List<MyPoint> MovePoint(PointF location)
+            {
+                  List<MyPoint> newpoint = new List<MyPoint>();
+                  for (int i = 0; i < PointList .Count; i++)
+                  {
+                        newpoint .Add(new MyPoint(PointList[i] .X + location .Y, PointList[i] .Y + location .X));
+                  }
+                  return newpoint;
+            }
+            public List<MyLine> MoveLine(PointF location)
+            {
+                  List<MyLine> newline = new List<MyLine>();
+                  for (int i = 0; i < LineList .Count; i++)
+                  {
+                        newline .Add(new MyLine(new MyPoint(LineList[i] .Start .X + location .Y
+                                                            , LineList[i] .Start .Y + location .X)
+                                              , new MyPoint(LineList[i] .End .X + location .Y
+                                                            , LineList[i] .End .Y + location .X)
+                                            ));
+                  }
+                  return newline;
+            }
+      }
       public class GridLib
       {
+            public float Width { get; set; }
+            public float Height { get; set; }
             public List<GridData> Grid { get; set; }
             public int[,] GridArray { get; set; }
+            public int[,] GridArrayZero { get; set; }
+            public bool ifMatchWidth { get; set; } = false;
             public GridLib()
             {
 
@@ -1093,6 +1128,21 @@ namespace FZYK .Nest
             {
                   GridArray = gridarray;
                   Grid = grid;
+            }
+            public GridLib(List<GridData> grid, int[,] gridarray, int[,] gridarrayZero)
+            {
+                  GridArrayZero = gridarrayZero;
+                  GridArray = gridarray;
+                  Grid = grid;
+            }
+
+            public GridLib(List<GridData> grid, int[,] gridarray, int[,] gridarrayZero, float width, float height)
+            {
+                  GridArrayZero = gridarrayZero;
+                  GridArray = gridarray;
+                  Grid = grid;
+                  Width = width;
+                  Height = height;
             }
       }
 }

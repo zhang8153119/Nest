@@ -47,8 +47,10 @@
                   this.ykLabel8 = new FZYK.WinCtrl.YKLabel(this.components);
                   this.ykLabel9 = new FZYK.WinCtrl.YKLabel(this.components);
                   this.cmbRotate = new FZYK.WinCtrl.YKComboBox();
-                  this.btnSure = new FZYK.WinCtrl.YKButton(this.components);
+                  this.ykLabel10 = new FZYK.WinCtrl.YKLabel(this.components);
+                  this.txtpath = new FZYK.WinCtrl.YKTextBoxSplit();
                   this.btnCancel = new FZYK.WinCtrl.YKButton(this.components);
+                  this.btnSure = new FZYK.WinCtrl.YKButton(this.components);
                   this.SuspendLayout();
                   // 
                   // ykLabel1
@@ -103,11 +105,11 @@
                   this.cmbType.BackColor = System.Drawing.Color.White;
                   this.cmbType.BorderColor = System.Drawing.Color.Black;
                   this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-                  this.cmbType.Enabled = false;
                   this.cmbType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
                   this.cmbType.FormattingEnabled = true;
                   this.cmbType.Items.AddRange(new object[] {
-            "矩形"});
+            "矩形",
+            "平行四边形"});
                   this.cmbType.Location = new System.Drawing.Point(257, 60);
                   this.cmbType.Name = "cmbType";
                   this.cmbType.PromptFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -181,11 +183,11 @@
                   // 
                   this.ykLabel5.AutoSize = true;
                   this.ykLabel5.IsTitle = false;
-                  this.ykLabel5.Location = new System.Drawing.Point(198, 123);
+                  this.ykLabel5.Location = new System.Drawing.Point(222, 123);
                   this.ykLabel5.Name = "ykLabel5";
-                  this.ykLabel5.Size = new System.Drawing.Size(53, 12);
+                  this.ykLabel5.Size = new System.Drawing.Size(29, 12);
                   this.ykLabel5.TabIndex = 0;
-                  this.ykLabel5.Text = "栅格精度";
+                  this.ykLabel5.Text = "精度";
                   // 
                   // ykLabel6
                   // 
@@ -279,29 +281,35 @@
                   this.cmbRotate.Size = new System.Drawing.Size(62, 20);
                   this.cmbRotate.TabIndex = 9;
                   // 
-                  // btnSure
+                  // ykLabel10
                   // 
-                  this.btnSure.A_BorderColor = System.Drawing.SystemColors.Desktop;
-                  this.btnSure.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
-                  this.btnSure.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
-                  this.btnSure.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-                  this.btnSure.DisplayFocusCues = false;
-                  this.btnSure.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
-                  this.btnSure.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
-                  this.btnSure.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
-                  this.btnSure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-                  this.btnSure.ForeColor = System.Drawing.Color.Black;
-                  this.btnSure.Image = ((System.Drawing.Image)(resources.GetObject("btnSure.Image")));
-                  this.btnSure.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-                  this.btnSure.Location = new System.Drawing.Point(212, 217);
-                  this.btnSure.Name = "btnSure";
-                  this.btnSure.Size = new System.Drawing.Size(75, 23);
-                  this.btnSure.TabIndex = 10;
-                  this.btnSure.Text = "确定";
-                  this.btnSure.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-                  this.btnSure.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Sure;
-                  this.btnSure.UseVisualStyleBackColor = true;
-                  this.btnSure.Click += new System.EventHandler(this.btnSure_Click);
+                  this.ykLabel10.AutoSize = true;
+                  this.ykLabel10.IsTitle = false;
+                  this.ykLabel10.Location = new System.Drawing.Point(72, 216);
+                  this.ykLabel10.Name = "ykLabel10";
+                  this.ykLabel10.Size = new System.Drawing.Size(101, 12);
+                  this.ykLabel10.TabIndex = 0;
+                  this.ykLabel10.Text = "套料结果保存路径";
+                  // 
+                  // txtpath
+                  // 
+                  this.txtpath.BackColor = System.Drawing.Color.White;
+                  this.txtpath.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+                  this.txtpath.FocusSelect = true;
+                  this.txtpath.IcoPopupType = FZYK.WinCtrl.Com.PopupButtonType.Normal;
+                  this.txtpath.IcoVisible = true;
+                  this.txtpath.InputDecimalPlace = 2;
+                  this.txtpath.InputFilterType = FZYK.WinCtrl.FilterTypeEnum.Normal;
+                  this.txtpath.Location = new System.Drawing.Point(176, 212);
+                  this.txtpath.Name = "txtpath";
+                  this.txtpath.PromptFont = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+                  this.txtpath.PromptForeColor = System.Drawing.SystemColors.GrayText;
+                  this.txtpath.PromptText = "";
+                  this.txtpath.Size = new System.Drawing.Size(266, 21);
+                  this.txtpath.TabIndex = 11;
+                  this.txtpath.UnderLine = true;
+                  this.txtpath.UnderLineColor = System.Drawing.Color.Black;
+                  this.txtpath.BtnOnclick += new System.EventHandler(this.txtpath_BtnOnclick);
                   // 
                   // btnCancel
                   // 
@@ -317,7 +325,7 @@
                   this.btnCancel.ForeColor = System.Drawing.Color.Black;
                   this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
                   this.btnCancel.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-                  this.btnCancel.Location = new System.Drawing.Point(311, 217);
+                  this.btnCancel.Location = new System.Drawing.Point(312, 248);
                   this.btnCancel.Name = "btnCancel";
                   this.btnCancel.Size = new System.Drawing.Size(75, 23);
                   this.btnCancel.TabIndex = 10;
@@ -327,11 +335,36 @@
                   this.btnCancel.UseVisualStyleBackColor = true;
                   this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
                   // 
+                  // btnSure
+                  // 
+                  this.btnSure.A_BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btnSure.A_GotFocusColor = System.Drawing.SystemColors.ActiveCaption;
+                  this.btnSure.A_MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btnSure.A_MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btnSure.DisplayFocusCues = false;
+                  this.btnSure.FlatAppearance.BorderColor = System.Drawing.SystemColors.Desktop;
+                  this.btnSure.FlatAppearance.MouseDownBackColor = System.Drawing.Color.SteelBlue;
+                  this.btnSure.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSteelBlue;
+                  this.btnSure.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+                  this.btnSure.ForeColor = System.Drawing.Color.Black;
+                  this.btnSure.Image = ((System.Drawing.Image)(resources.GetObject("btnSure.Image")));
+                  this.btnSure.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+                  this.btnSure.Location = new System.Drawing.Point(213, 248);
+                  this.btnSure.Name = "btnSure";
+                  this.btnSure.Size = new System.Drawing.Size(75, 23);
+                  this.btnSure.TabIndex = 10;
+                  this.btnSure.Text = "确定";
+                  this.btnSure.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+                  this.btnSure.TextType = FZYK.WinCtrl.YKButton.YKBtnTextType.Sure;
+                  this.btnSure.UseVisualStyleBackColor = true;
+                  this.btnSure.Click += new System.EventHandler(this.btnSure_Click);
+                  // 
                   // FrmNestSet
                   // 
                   this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
                   this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-                  this.ClientSize = new System.Drawing.Size(611, 259);
+                  this.ClientSize = new System.Drawing.Size(618, 287);
+                  this.Controls.Add(this.txtpath);
                   this.Controls.Add(this.btnCancel);
                   this.Controls.Add(this.btnSure);
                   this.Controls.Add(this.cmbRotate);
@@ -348,6 +381,7 @@
                   this.Controls.Add(this.ykLabel7);
                   this.Controls.Add(this.ykLabel5);
                   this.Controls.Add(this.ykLabel9);
+                  this.Controls.Add(this.ykLabel10);
                   this.Controls.Add(this.ykLabel4);
                   this.Controls.Add(this.ykLabel3);
                   this.Controls.Add(this.ykLabel1);
@@ -381,5 +415,7 @@
             private WinCtrl .YKComboBox cmbRotate;
             private WinCtrl .YKButton btnSure;
             private WinCtrl .YKButton btnCancel;
+            private WinCtrl .YKLabel ykLabel10;
+            private WinCtrl .YKTextBoxSplit txtpath;
       }
 }

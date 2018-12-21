@@ -39,6 +39,9 @@ namespace myCad .Model
             public float GridWid { get; set; }
             public RectangleF Rect { get; set; }//最小包络矩形
             public bool Combine { get; set; }//是否是组合图形
+
+            public int Kind1 { get; set; }//单一图形种类数
+            public int Kind2 { get; set; }//组合图形种类数
             #endregion
             public PlateModel Copy()
             {
@@ -71,6 +74,8 @@ namespace myCad .Model
                   pm .GridWid = GridWid;
                   pm .Rect = Rect;
                   pm .Combine = Combine;
+                  pm .Kind1 = Kind1;
+                  pm .Kind2 = Kind2;
                   return pm;
             }
             #region set，get
